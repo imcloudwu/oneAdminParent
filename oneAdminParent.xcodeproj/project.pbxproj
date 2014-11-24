@@ -7,6 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */; };
+		6121080A1A1B101F00582DCC /* TEACHER.png in Resources */ = {isa = PBXBuildFile; fileRef = 612108091A1B101F00582DCC /* TEACHER.png */; };
+		6121080C1A1B102400582DCC /* school.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121080B1A1B102400582DCC /* school.png */; };
+		6121080E1A1B13F700582DCC /* msgFrame.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121080D1A1B13F700582DCC /* msgFrame.png */; };
+		612108101A1B2A1C00582DCC /* file.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121080F1A1B2A1C00582DCC /* file.png */; };
+		612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */; };
+		613D6AB91A19855600DD3681 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 613D6AB41A19855600DD3681 /* add.png */; };
+		613D6ABA1A19855600DD3681 /* award.png in Resources */ = {isa = PBXBuildFile; fileRef = 613D6AB51A19855600DD3681 /* award.png */; };
+		613D6ABB1A19855600DD3681 /* grade.png in Resources */ = {isa = PBXBuildFile; fileRef = 613D6AB61A19855600DD3681 /* grade.png */; };
+		613D6ABC1A19855600DD3681 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = 613D6AB71A19855600DD3681 /* message.png */; };
+		613D6ABD1A19855600DD3681 /* Note.png in Resources */ = {isa = PBXBuildFile; fileRef = 613D6AB81A19855600DD3681 /* Note.png */; };
+		613D6AC11A199B8700DD3681 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC01A199B8700DD3681 /* HttpClient.swift */; };
+		613D6AC31A199BD500DD3681 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC21A199BD500DD3681 /* Connector.swift */; };
+		613D6AC51A199C0A00DD3681 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC41A199C0A00DD3681 /* Global.swift */; };
+		613D6AC71A199C3E00DD3681 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC61A199C3E00DD3681 /* SWXMLHash.swift */; };
+		613D6AC91A19A25C00DD3681 /* MainCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC81A19A25C00DD3681 /* MainCtrl.swift */; };
+		613E052E1A23053300369344 /* SMScoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E052D1A23053300369344 /* SMScoreViewCtrl.swift */; };
+		61BD61861A19C31800488838 /* add-g.png in Resources */ = {isa = PBXBuildFile; fileRef = 61BD61851A19C31800488838 /* add-g.png */; };
+		61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61871A19CE7900488838 /* MessageViewCtrl.swift */; };
+		61BD618A1A19D4E700488838 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61891A19D4E700488838 /* CustomCell.swift */; };
+		61BD618C1A19FA8300488838 /* MsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD618B1A19FA8300488838 /* MsgView.swift */; };
 		61EE731A1A15F83800E949C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE73191A15F83800E949C6 /* AppDelegate.swift */; };
 		61EE731C1A15F83800E949C6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE731B1A15F83800E949C6 /* FirstViewController.swift */; };
 		61EE731E1A15F83800E949C6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE731D1A15F83800E949C6 /* SecondViewController.swift */; };
@@ -14,6 +35,9 @@
 		61EE73231A15F83800E949C6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61EE73221A15F83800E949C6 /* Images.xcassets */; };
 		61EE73261A15F83800E949C6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61EE73241A15F83800E949C6 /* LaunchScreen.xib */; };
 		61EE73321A15F83800E949C6 /* oneAdminParentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE73311A15F83800E949C6 /* oneAdminParentTests.swift */; };
+		61EE733C1A15F84E00E949C6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61EE733B1A15F84E00E949C6 /* FacebookSDK.framework */; };
+		61EE73401A15FABF00E949C6 /* 1AdminParentIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 61EE733F1A15FABF00E949C6 /* 1AdminParentIcon.png */; };
+		61EE73421A15FB4300E949C6 /* LoginViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE73411A15FB4300E949C6 /* LoginViewCtrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +51,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardViewCtrl.swift; sourceTree = "<group>"; };
+		612108091A1B101F00582DCC /* TEACHER.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TEACHER.png; path = ../../Downloads/TEACHER.png; sourceTree = "<group>"; };
+		6121080B1A1B102400582DCC /* school.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = school.png; path = ../../Downloads/school.png; sourceTree = "<group>"; };
+		6121080D1A1B13F700582DCC /* msgFrame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = msgFrame.png; path = ../../Downloads/msgFrame.png; sourceTree = "<group>"; };
+		6121080F1A1B2A1C00582DCC /* file.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = file.png; path = ../../Downloads/file.png; sourceTree = "<group>"; };
+		612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewCtrl.swift; sourceTree = "<group>"; };
+		613D6AB41A19855600DD3681 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../Downloads/add.png; sourceTree = "<group>"; };
+		613D6AB51A19855600DD3681 /* award.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = award.png; path = ../../Downloads/award.png; sourceTree = "<group>"; };
+		613D6AB61A19855600DD3681 /* grade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grade.png; path = ../../Downloads/grade.png; sourceTree = "<group>"; };
+		613D6AB71A19855600DD3681 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../../Downloads/message.png; sourceTree = "<group>"; };
+		613D6AB81A19855600DD3681 /* Note.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Note.png; path = ../../Downloads/Note.png; sourceTree = "<group>"; };
+		613D6AC01A199B8700DD3681 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		613D6AC21A199BD500DD3681 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		613D6AC41A199C0A00DD3681 /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		613D6AC61A199C3E00DD3681 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
+		613D6AC81A19A25C00DD3681 /* MainCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCtrl.swift; sourceTree = "<group>"; };
+		613E052D1A23053300369344 /* SMScoreViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMScoreViewCtrl.swift; sourceTree = "<group>"; };
+		61BD61851A19C31800488838 /* add-g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-g.png"; path = "../../Downloads/add-g.png"; sourceTree = "<group>"; };
+		61BD61871A19CE7900488838 /* MessageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCtrl.swift; sourceTree = "<group>"; };
+		61BD61891A19D4E700488838 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		61BD618B1A19FA8300488838 /* MsgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgView.swift; sourceTree = "<group>"; };
 		61EE73141A15F83800E949C6 /* oneAdminParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oneAdminParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EE73181A15F83800E949C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61EE73191A15F83800E949C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +83,10 @@
 		61EE732B1A15F83800E949C6 /* oneAdminParentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = oneAdminParentTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EE73301A15F83800E949C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61EE73311A15F83800E949C6 /* oneAdminParentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = oneAdminParentTests.swift; sourceTree = "<group>"; };
+		61EE733B1A15F84E00E949C6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		61EE733D1A15F92F00E949C6 /* Bridge-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridge-Header.h"; sourceTree = "<group>"; };
+		61EE733F1A15FABF00E949C6 /* 1AdminParentIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 1AdminParentIcon.png; path = ../../Downloads/1AdminParentIcon.png; sourceTree = "<group>"; };
+		61EE73411A15FB4300E949C6 /* LoginViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewCtrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61EE733C1A15F84E00E949C6 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +111,20 @@
 		61EE730B1A15F83800E949C6 = {
 			isa = PBXGroup;
 			children = (
+				613E052D1A23053300369344 /* SMScoreViewCtrl.swift */,
+				611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */,
+				612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */,
+				61BD618B1A19FA8300488838 /* MsgView.swift */,
+				61BD61891A19D4E700488838 /* CustomCell.swift */,
+				61BD61871A19CE7900488838 /* MessageViewCtrl.swift */,
+				613D6AC81A19A25C00DD3681 /* MainCtrl.swift */,
+				613D6AC61A199C3E00DD3681 /* SWXMLHash.swift */,
+				613D6AC41A199C0A00DD3681 /* Global.swift */,
+				613D6AC21A199BD500DD3681 /* Connector.swift */,
+				613D6AC01A199B8700DD3681 /* HttpClient.swift */,
+				61EE733E1A15FAB200E949C6 /* image */,
+				61EE733D1A15F92F00E949C6 /* Bridge-Header.h */,
+				61EE733B1A15F84E00E949C6 /* FacebookSDK.framework */,
 				61EE73161A15F83800E949C6 /* oneAdminParent */,
 				61EE732E1A15F83800E949C6 /* oneAdminParentTests */,
 				61EE73151A15F83800E949C6 /* Products */,
@@ -86,6 +150,7 @@
 				61EE73221A15F83800E949C6 /* Images.xcassets */,
 				61EE73241A15F83800E949C6 /* LaunchScreen.xib */,
 				61EE73171A15F83800E949C6 /* Supporting Files */,
+				61EE73411A15FB4300E949C6 /* LoginViewCtrl.swift */,
 			);
 			path = oneAdminParent;
 			sourceTree = "<group>";
@@ -113,6 +178,24 @@
 				61EE73301A15F83800E949C6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		61EE733E1A15FAB200E949C6 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				6121080F1A1B2A1C00582DCC /* file.png */,
+				6121080D1A1B13F700582DCC /* msgFrame.png */,
+				6121080B1A1B102400582DCC /* school.png */,
+				612108091A1B101F00582DCC /* TEACHER.png */,
+				61BD61851A19C31800488838 /* add-g.png */,
+				613D6AB41A19855600DD3681 /* add.png */,
+				613D6AB51A19855600DD3681 /* award.png */,
+				613D6AB61A19855600DD3681 /* grade.png */,
+				613D6AB71A19855600DD3681 /* message.png */,
+				613D6AB81A19855600DD3681 /* Note.png */,
+				61EE733F1A15FABF00E949C6 /* 1AdminParentIcon.png */,
+			);
+			name = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,9 +278,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613D6ABD1A19855600DD3681 /* Note.png in Resources */,
+				61BD61861A19C31800488838 /* add-g.png in Resources */,
+				61EE73401A15FABF00E949C6 /* 1AdminParentIcon.png in Resources */,
+				613D6ABA1A19855600DD3681 /* award.png in Resources */,
 				61EE73211A15F83800E949C6 /* Main.storyboard in Resources */,
+				6121080C1A1B102400582DCC /* school.png in Resources */,
+				6121080A1A1B101F00582DCC /* TEACHER.png in Resources */,
+				613D6ABC1A19855600DD3681 /* message.png in Resources */,
+				6121080E1A1B13F700582DCC /* msgFrame.png in Resources */,
 				61EE73261A15F83800E949C6 /* LaunchScreen.xib in Resources */,
+				613D6AB91A19855600DD3681 /* add.png in Resources */,
 				61EE73231A15F83800E949C6 /* Images.xcassets in Resources */,
+				613D6ABB1A19855600DD3681 /* grade.png in Resources */,
+				612108101A1B2A1C00582DCC /* file.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,9 +309,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613D6AC91A19A25C00DD3681 /* MainCtrl.swift in Sources */,
+				613D6AC11A199B8700DD3681 /* HttpClient.swift in Sources */,
+				61BD618C1A19FA8300488838 /* MsgView.swift in Sources */,
+				613E052E1A23053300369344 /* SMScoreViewCtrl.swift in Sources */,
+				61BD618A1A19D4E700488838 /* CustomCell.swift in Sources */,
+				613D6AC71A199C3E00DD3681 /* SWXMLHash.swift in Sources */,
 				61EE731E1A15F83800E949C6 /* SecondViewController.swift in Sources */,
 				61EE731A1A15F83800E949C6 /* AppDelegate.swift in Sources */,
+				613D6AC31A199BD500DD3681 /* Connector.swift in Sources */,
 				61EE731C1A15F83800E949C6 /* FirstViewController.swift in Sources */,
+				61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */,
+				61EE73421A15FB4300E949C6 /* LoginViewCtrl.swift in Sources */,
+				613D6AC51A199C0A00DD3681 /* Global.swift in Sources */,
+				612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */,
+				611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,9 +446,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cloud/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = oneAdminParent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridge-Header.h";
 			};
 			name = Debug;
 		};
@@ -350,9 +462,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/cloud/Documents/FacebookSDK,
+				);
 				INFOPLIST_FILE = oneAdminParent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridge-Header.h";
 			};
 			name = Release;
 		};
@@ -409,6 +527,7 @@
 				61EE73371A15F83800E949C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61EE73381A15F83800E949C6 /* Build configuration list for PBXNativeTarget "oneAdminParentTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +536,7 @@
 				61EE733A1A15F83800E949C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
