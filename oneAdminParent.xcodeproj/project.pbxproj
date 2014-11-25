@@ -24,6 +24,11 @@
 		613D6AC71A199C3E00DD3681 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC61A199C3E00DD3681 /* SWXMLHash.swift */; };
 		613D6AC91A19A25C00DD3681 /* MainCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC81A19A25C00DD3681 /* MainCtrl.swift */; };
 		613E052E1A23053300369344 /* SMScoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E052D1A23053300369344 /* SMScoreViewCtrl.swift */; };
+		613E05301A232E7F00369344 /* keyin.png in Resources */ = {isa = PBXBuildFile; fileRef = 613E052F1A232E7F00369344 /* keyin.png */; };
+		613E05321A232EA800369344 /* QRCode.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 613E05311A232EA800369344 /* QRCode.jpg */; };
+		613E05341A23318400369344 /* ChildManageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E05331A23318400369344 /* ChildManageViewCtrl.swift */; };
+		613E05361A23346000369344 /* ScanViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E05351A23346000369344 /* ScanViewCtrl.swift */; };
+		613E05381A23348500369344 /* KeyinViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E05371A23348500369344 /* KeyinViewCtrl.swift */; };
 		61BD61861A19C31800488838 /* add-g.png in Resources */ = {isa = PBXBuildFile; fileRef = 61BD61851A19C31800488838 /* add-g.png */; };
 		61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61871A19CE7900488838 /* MessageViewCtrl.swift */; };
 		61BD618A1A19D4E700488838 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61891A19D4E700488838 /* CustomCell.swift */; };
@@ -68,6 +73,11 @@
 		613D6AC61A199C3E00DD3681 /* SWXMLHash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWXMLHash.swift; sourceTree = "<group>"; };
 		613D6AC81A19A25C00DD3681 /* MainCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainCtrl.swift; sourceTree = "<group>"; };
 		613E052D1A23053300369344 /* SMScoreViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMScoreViewCtrl.swift; sourceTree = "<group>"; };
+		613E052F1A232E7F00369344 /* keyin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = keyin.png; path = ../../Downloads/keyin.png; sourceTree = "<group>"; };
+		613E05311A232EA800369344 /* QRCode.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = QRCode.jpg; path = ../../Downloads/QRCode.jpg; sourceTree = "<group>"; };
+		613E05331A23318400369344 /* ChildManageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChildManageViewCtrl.swift; sourceTree = "<group>"; };
+		613E05351A23346000369344 /* ScanViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanViewCtrl.swift; sourceTree = "<group>"; };
+		613E05371A23348500369344 /* KeyinViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyinViewCtrl.swift; sourceTree = "<group>"; };
 		61BD61851A19C31800488838 /* add-g.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "add-g.png"; path = "../../Downloads/add-g.png"; sourceTree = "<group>"; };
 		61BD61871A19CE7900488838 /* MessageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCtrl.swift; sourceTree = "<group>"; };
 		61BD61891A19D4E700488838 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
@@ -111,6 +121,9 @@
 		61EE730B1A15F83800E949C6 = {
 			isa = PBXGroup;
 			children = (
+				613E05371A23348500369344 /* KeyinViewCtrl.swift */,
+				613E05351A23346000369344 /* ScanViewCtrl.swift */,
+				613E05331A23318400369344 /* ChildManageViewCtrl.swift */,
 				613E052D1A23053300369344 /* SMScoreViewCtrl.swift */,
 				611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */,
 				612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */,
@@ -183,6 +196,8 @@
 		61EE733E1A15FAB200E949C6 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				613E05311A232EA800369344 /* QRCode.jpg */,
+				613E052F1A232E7F00369344 /* keyin.png */,
 				6121080F1A1B2A1C00582DCC /* file.png */,
 				6121080D1A1B13F700582DCC /* msgFrame.png */,
 				6121080B1A1B102400582DCC /* school.png */,
@@ -285,9 +300,11 @@
 				61EE73211A15F83800E949C6 /* Main.storyboard in Resources */,
 				6121080C1A1B102400582DCC /* school.png in Resources */,
 				6121080A1A1B101F00582DCC /* TEACHER.png in Resources */,
+				613E05321A232EA800369344 /* QRCode.jpg in Resources */,
 				613D6ABC1A19855600DD3681 /* message.png in Resources */,
 				6121080E1A1B13F700582DCC /* msgFrame.png in Resources */,
 				61EE73261A15F83800E949C6 /* LaunchScreen.xib in Resources */,
+				613E05301A232E7F00369344 /* keyin.png in Resources */,
 				613D6AB91A19855600DD3681 /* add.png in Resources */,
 				61EE73231A15F83800E949C6 /* Images.xcassets in Resources */,
 				613D6ABB1A19855600DD3681 /* grade.png in Resources */,
@@ -309,7 +326,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613E05381A23348500369344 /* KeyinViewCtrl.swift in Sources */,
 				613D6AC91A19A25C00DD3681 /* MainCtrl.swift in Sources */,
+				613E05341A23318400369344 /* ChildManageViewCtrl.swift in Sources */,
 				613D6AC11A199B8700DD3681 /* HttpClient.swift in Sources */,
 				61BD618C1A19FA8300488838 /* MsgView.swift in Sources */,
 				613E052E1A23053300369344 /* SMScoreViewCtrl.swift in Sources */,
@@ -323,6 +342,7 @@
 				61EE73421A15FB4300E949C6 /* LoginViewCtrl.swift in Sources */,
 				613D6AC51A199C0A00DD3681 /* Global.swift in Sources */,
 				612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */,
+				613E05361A23346000369344 /* ScanViewCtrl.swift in Sources */,
 				611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

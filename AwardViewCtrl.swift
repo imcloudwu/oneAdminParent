@@ -117,22 +117,22 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         var Dc = 0
         
         for item in _displayData{
-            if let ma = item.MeritA.toInt(){
+            if let ma = item.MeritA?.toInt(){
                 Ma += ma
             }
-            if let mb = item.MeritB.toInt(){
+            if let mb = item.MeritB?.toInt(){
                 Mb += mb
             }
-            if let mc = item.MeritC.toInt(){
+            if let mc = item.MeritC?.toInt(){
                 Mc += mc
             }
-            if let da = item.DemeritA.toInt(){
+            if let da = item.DemeritA?.toInt(){
                 Da += da
             }
-            if let db = item.DemeritB.toInt(){
+            if let db = item.DemeritB?.toInt(){
                 Db += db
             }
-            if let dc = item.DemeritC.toInt(){
+            if let dc = item.DemeritC?.toInt(){
                 Dc += dc
             }
         }
@@ -157,6 +157,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     // Called when a button is clicked. The view will be automatically dismissed after this call returns
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int){
         if buttonIndex > 0{
+            Global.Loading.showActivityIndicator(self.view)
             Global.CurrentChild = Global.ChildList[buttonIndex - 1]
             GetData()
         }
@@ -237,6 +238,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
             self._data.sort{$0.Date > $1.Date}
             
             self.segment_selected(self)
+            Global.Loading.hideActivityIndicator(self.view)
         }
     }
 }

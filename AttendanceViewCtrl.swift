@@ -105,6 +105,7 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
     // Called when a button is clicked. The view will be automatically dismissed after this call returns
     func actionSheet(actionSheet: UIActionSheet, clickedButtonAtIndex buttonIndex: Int){
         if buttonIndex > 0{
+            Global.Loading.showActivityIndicator(self.view)
             Global.CurrentChild = Global.ChildList[buttonIndex - 1]
             GetData()
         }
@@ -166,6 +167,7 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
             self._data.sort{$0.Date > $1.Date}
             
             self.segment_selected(self)
+            Global.Loading.hideActivityIndicator(self.view)
         }
     }
 }

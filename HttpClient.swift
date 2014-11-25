@@ -20,6 +20,7 @@ public class HttpClient{
         
         var req = NSMutableURLRequest()
         req.URL = NSURL(string:url)
+        println(url)
         req.HTTPMethod = "POST"
         req.HTTPBody = body.dataUsingEncoding( NSUTF8StringEncoding, allowLossyConversion: true)
         var conn = NSURLConnection(request: req, delegate: HttpRequest(callback), startImmediately: true)

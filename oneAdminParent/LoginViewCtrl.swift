@@ -48,6 +48,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile","email","user_friends"]
+        
+        Global.LVC = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -290,8 +292,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     func MoveToAddChildPage(){
-        //var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("addChild") as UIViewController
-        //self.presentViewController(nextView, animated: true, completion: nil)
+        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("myChild") as UIViewController
+        self.presentViewController(nextView, animated: true, completion: nil)
     }
 }
 

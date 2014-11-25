@@ -63,6 +63,16 @@ public class Connector{
         })
     }
     
+    func SendRequestTest(service:String,body:String,function:(response:NSData) -> ()){
+        
+        //<TargetContract>\(self.Contract)</TargetContract>
+        var body = "<Envelope><Header><SecurityToken Type='Public'/><TargetService>\(service)</TargetService></Header><Body>\(body)</Body></Envelope>"
+        
+        HttpClient.POST(self.AccessPoint, body: body, callback: { data in
+            function(response: data)
+        })
+    }
+    
     func IsValidated() -> Bool {
         GetAccessToken()
         GetSessionID()
@@ -131,6 +141,7 @@ public class Connector{
             println("Get SessionID error: \(error)")
         }
         else{
+            println(NSString(data: sessionData, encoding: NSUTF8StringEncoding))
             var xml = SWXMLHash.parse(sessionData)
             var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
             

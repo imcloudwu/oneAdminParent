@@ -54,6 +54,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         tableView.delegate = self
         tableView.dataSource = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -81,6 +82,9 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         
         if actionSheet == self.actionSheet{
             if buttonIndex > 0{
+                
+                Global.Loading.showActivityIndicator(self.view)
+                
                 Global.CurrentChild = Global.ChildList[buttonIndex - 1]
                 GetData()
             }
@@ -227,6 +231,8 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             else{
                 self.sysmBtn.setTitle("查無學期成績資料", forState: UIControlState.Normal)
             }
+            
+            Global.Loading.hideActivityIndicator(self.view)
         }
     }
 }
