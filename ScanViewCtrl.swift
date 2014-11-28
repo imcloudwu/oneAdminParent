@@ -121,7 +121,7 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
                             
                             con.SendRequest("Join.AsParent", body: "<Request><ParentCode>\(code)</ParentCode><Relationship>iOS Parent</Relationship></Request>") { (response) -> () in
                                 var str = NSString(data: response, encoding: NSUTF8StringEncoding)
-                                //println(str)
+                                println(str)
                                 
                                 var xml = SWXMLHash.parse(response)
                                 var success = false

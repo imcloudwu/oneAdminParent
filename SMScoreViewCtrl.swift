@@ -178,8 +178,8 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell = tableView.dequeueReusableCellWithIdentifier("smScoreCell") as SMScoreCell
         cell.subject.text = _displayData[indexPath.row].Name
-        cell.credit.text = "學分:\(_displayData[indexPath.row].Credit)"
-        cell.score.text = "成績:\(_displayData[indexPath.row].Score)"
+        cell.credit.text = "學分 \(_displayData[indexPath.row].Credit)"
+        cell.score.text = "成績 \(_displayData[indexPath.row].Score)"
         
         var require = _displayData[indexPath.row].IsRequire == true ? "必修" : "選修"
         var type = _displayData[indexPath.row].IsXiodin == true ? "校訂" : "部訂"

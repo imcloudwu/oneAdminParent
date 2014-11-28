@@ -27,7 +27,7 @@ class MainCtrl: UITabBarController {
     }
     
     override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientationMask.Portrait.toRaw().hashValue | UIInterfaceOrientationMask.PortraitUpsideDown.toRaw().hashValue
+        return UIInterfaceOrientationMask.Portrait.rawValue.hashValue | UIInterfaceOrientationMask.PortraitUpsideDown.rawValue.hashValue
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent){

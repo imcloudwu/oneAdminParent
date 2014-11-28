@@ -12,7 +12,7 @@ public class HttpClient{
     
     class func Get(url:String,callback:(data:NSData) -> ()){
         
-        var req = NSURLRequest(URL: NSURL(string: url))
+        var req = NSURLRequest(URL: NSURL(string: url)!)
         var conn = NSURLConnection(request: req, delegate: HttpRequest(callback), startImmediately: true)
     }
     

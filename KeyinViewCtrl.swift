@@ -13,22 +13,21 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     var _DSNSDic:Dictionary<String,String>!
     var _display:[String]!
     
+    var _con:Connector!
+    
     var isBusy = false
     
     @IBOutlet weak var contentView: UIView!
-    
     @IBOutlet weak var submitBtn: UIButton!
-    
     @IBOutlet weak var autoView: UITableView!
-    
     @IBOutlet weak var server: UITextField!
-    
     @IBOutlet weak var code: UITextField!
-    
     @IBOutlet weak var relationship: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        _con = Global.connector.Clone()
         
         _DSNSDic = Dictionary<String,String>()
         _display = [String]()
@@ -88,7 +87,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "auto")
-        cell.textLabel?.text = _display[indexPath.row]
+        cell.textLabel.text = _display[indexPath.row]
         return cell
     }
     
@@ -99,17 +98,15 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     func search() {
         
-        self._DSNSDic.removeAll(keepCapacity: false)
+        _con.AccessPoint = "http://dsns.ischool.com.tw/dsns/dsns"
+        _con.Contract = "dsns"
         
-        self._display.removeAll(keepCapacity: false)
-        
-        var con = Global.connector.Clone()
-        
-        con.AccessPoint = "http://dsns.ischool.com.tw/dsns/dsns"
-        con.Contract = "dsns"
-        
-        con.SendRequestTest("DS.NameService.GetTop10", body: "<a>\(self.server.text)</a>"){ data in
+        _con.SendRequestTest("DS.NameService.GetTop10", body: "<a>\(self.server.text)</a>"){ data in
             //println(NSString(data: data, encoding: NSUTF8StringEncoding))
+            
+            self._DSNSDic.removeAll(keepCapacity: false)
+            
+            self._display.removeAll(keepCapacity: false)
             
             var xml = SWXMLHash.parse(data)
             for app in xml["Envelope"]["Body"]["Response"]["Application"] {

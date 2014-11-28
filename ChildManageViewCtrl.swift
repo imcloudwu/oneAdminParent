@@ -19,6 +19,8 @@ class ChildManageViewCtrl: UIViewController,UIActionSheetDelegate,UIAlertViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         Global.AdjustView(contentView)
+        
+        self.navigationController
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -55,6 +57,7 @@ class ChildManageViewCtrl: UIViewController,UIActionSheetDelegate,UIAlertViewDel
         if buttonIndex == 0{
             child.Con.SendRequest("main.RemoveChild", body: "<Request><StudentParent><StudentID>\(child.ID)</StudentID></StudentParent></Request>") { (response) -> () in
                 
+                //println(NSString(data: response, encoding: NSUTF8StringEncoding))
                 Global.ChildList.removeAtIndex(self.childIndex)
                 self.viewWillAppear(false)
             }

@@ -44,10 +44,13 @@ public class Connector{
         return con
     }
     
-    private func getAuthUrl() -> String {
-        //return "\(AuthUrl)?grant_type=password&client_id=\(ClientID)&client_secret=\(ClientSecret)&username=\(UserName)&password=\(Password)"
-        
-        return "https://auth.ischool.com.tw/c/servicem/fbtoken.php?fbtoken=\(FBToken)&client_id=\(ClientID)&client_secret=\(ClientSecret)"
+    private func getAuthUrl(type:String) -> String {
+        if type == "FB"{
+            return "https://auth.ischool.com.tw/c/servicem/fbtoken.php?fbtoken=\(FBToken)&client_id=\(ClientID)&client_secret=\(ClientSecret)"
+        }
+        else{
+            return "\(AuthUrl)?grant_type=password&client_id=\(ClientID)&client_secret=\(ClientSecret)&username=\(UserName)&password=\(Password)"
+        }
     }
     
     func SendRequest(service:String,body:String,function:(response:NSData) -> ()){
@@ -73,8 +76,8 @@ public class Connector{
         })
     }
     
-    func IsValidated() -> Bool {
-        GetAccessToken()
+    func IsValidated(type:String) -> Bool {
+        GetAccessToken(type)
         GetSessionID()
         
         if self.SessionID == nil{
@@ -85,13 +88,16 @@ public class Connector{
         }
     }
     
-    public func GetAccessToken(){
+    public func GetAccessToken(type:String){
         var response:AutoreleasingUnsafeMutablePointer<NSURLResponse?> = nil
         var error: NSErrorPointer = nil
         
         var request = NSMutableURLRequest()
         
-        request.URL = NSURL.URLWithString(self.getAuthUrl())
+        //request.URL = NSURL.URLWithString(self.getAuthUrl(type))
+        request.URL = NSURL(string: self.getAuthUrl(type))
+        
+        
         // Sending Synchronous request using NSURLConnection
         
         var tokenData = NSURLConnection.sendSynchronousRequest(request,returningResponse: response, error: error) as NSData!
@@ -105,20 +111,23 @@ public class Connector{
         else
         {
             //Converting data to String
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(tokenData, options: nil, error: nil) as NSDictionary
-            //println(NSString(data: tokenData, encoding: NSUTF8StringEncoding))
+            //println(tokenData)
+            var jsonResult = NSJSONSerialization.JSONObjectWithData(tokenData!, options: nil, error: nil) as NSDictionary!
+            //println(jsonResult)
             
-            var wrapping_accessToken = jsonResult["access_token"] as String?
-            var wrapping_refreashToken = jsonResult["refresh_token"] as String?
+            //var wrapping_accessToken = jsonResult["access_token"] as String?
+            //var wrapping_refreashToken = jsonResult["refresh_token"] as String?
             
-            if let refreashToken = wrapping_refreashToken{
+            if let accessToken = jsonResult["access_token"] as String?{
+                self.AccessToken = accessToken
+            }
+            
+            if let refreashToken = jsonResult["refresh_token"] as String?{
                 self.RefreshToken = refreashToken
                 //println(self.RefreshToken)
             }
             
-            if let accessToken = wrapping_accessToken {
-                self.AccessToken = accessToken
-            }
+            
         }
     }
     
@@ -130,7 +139,8 @@ public class Connector{
         
         var body = "<Envelope><Header><TargetContract>\(self.Contract)</TargetContract><TargetService>DS.Base.Connect</TargetService><SecurityToken Type='PassportAccessToken'><AccessToken>\(self.AccessToken)</AccessToken></SecurityToken></Header><Body><RequestSessionID/></Body></Envelope>"
         
-        request.URL = NSURL.URLWithString(self.AccessPoint)
+        //request.URL = NSURL.URLWithString(self.AccessPoint)
+        request.URL = NSURL(string: self.AccessPoint)
         request.HTTPMethod = "POST"
         request.HTTPBody = body.dataUsingEncoding( NSUTF8StringEncoding, allowLossyConversion: true)
         
@@ -141,11 +151,11 @@ public class Connector{
             println("Get SessionID error: \(error)")
         }
         else{
-            println(NSString(data: sessionData, encoding: NSUTF8StringEncoding))
+            //println(NSString(data: sessionData, encoding: NSUTF8StringEncoding))
             var xml = SWXMLHash.parse(sessionData)
-            var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
+            //var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
             
-            if let sessionid = wrapping_sessionid{
+            if let sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text{
                 self.SessionID = sessionid
                 //println("sessionid: \(sessionid)")
             }

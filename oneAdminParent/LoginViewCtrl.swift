@@ -16,26 +16,25 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     
     var _con:Connector!
     var fbToken:String!
+    var _screenHeight:CGFloat!
+    var _orginframe:CGRect!
     
     @IBOutlet weak var content: UIView!
     
     @IBOutlet weak var fbLoginView: FBLoginView!
     @IBOutlet weak var status: UILabel!
-    
-    
     @IBOutlet weak var button: UIButton!
-    
-    @IBAction func ggg(sender: AnyObject) {
-        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("Main") as UIViewController
-        
-        
-        self.presentViewController(nextView, animated: true, completion: nil)
-    }
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let screenSize: CGRect = UIScreen.mainScreen().bounds
+        _screenHeight = screenSize.height
+        
         Global.AdjustView(content)
+        _orginframe = CGRectMake(self.content.frame.origin.x, self.content.frame.origin.y, self.view.bounds.width, self.view.bounds.height)
         
         button.layer.cornerRadius = 5
         
@@ -65,24 +64,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     
     //force to use Portrait orientation
     override func supportedInterfaceOrientations() -> Int {
-        return UIInterfaceOrientationMask.Portrait.toRaw().hashValue | UIInterfaceOrientationMask.PortraitUpsideDown.toRaw().hashValue
+        return UIInterfaceOrientationMask.Portrait.rawValue.hashValue | UIInterfaceOrientationMask.PortraitUpsideDown.rawValue.hashValue
     }
-    
-    //    override func viewDidAppear(animated: Bool) {
-    //
-    //        let screenSize: CGRect = UIScreen.mainScreen().bounds
-    //        //let screenWidth = screenSize.width;
-    //        let screenHeight = screenSize.height;
-    //        //let screenWidth = screenSize.width * .75;
-    //
-    //        //println(screenHeight)
-    //        if screenHeight >= 736{
-    //            content.frame.offset(dx: 19, dy: 0)
-    //        }
-    //        else if screenHeight <= 568{
-    //            content.frame.offset(dx: -28, dy: 0)
-    //        }
-    //    }
     
     // called when 'return' key pressed. return NO to ignore.
     func textFieldShouldReturn(textField: UITextField!) -> Bool
@@ -97,31 +80,38 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     func keyboardWillShow(notification: NSNotification) {
-        var info:NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
         
-        var keyboardHeight:CGFloat = keyboardSize.height
-        
-        var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-            }, completion: nil)
-        
+        if self._screenHeight <= 568{
+            var info:NSDictionary = notification.userInfo!
+            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+            
+            var keyboardHeight:CGFloat = keyboardSize.height
+            
+            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+            
+            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+                }, completion: nil)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        var info:NSDictionary = notification.userInfo!
-        var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
         
-        var keyboardHeight:CGFloat = keyboardSize.height
-        
-        var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-        
-        UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-            self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-            }, completion: nil)
-        
+        if self._screenHeight <= 568{
+            var info:NSDictionary = notification.userInfo!
+            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+            
+            var keyboardHeight:CGFloat = keyboardSize.height
+            
+            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+            
+            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                //self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+                self.content.frame = self._orginframe
+                }, completion: nil)
+        }
     }
     
     //When FB login
@@ -135,10 +125,10 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         if fbToken == nil{
             fbToken = FBSession.activeSession().accessTokenData.accessToken
             LoginWithFB()
+            //println("user name: \(user.name)")
+            //println("token: \(fbToken)")
+            //println(user.objectForKey("email"))
         }
-        //println("user name: \(user.name)")
-        //println("token: \(fbToken)")
-        //println(user.objectForKey("email"))
     }
     
     //after FB logout
@@ -151,15 +141,22 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         println("fb login error")
     }
     
-    func LoginWithFB(){
-        
-        self.status.text = "登入驗證"
+    @IBAction func loginBtn(sender: AnyObject) {
+        LoginWithGreening()
+    }
+    
+    func LoginWithGreening(){
+        Global.Loading.showActivityIndicator(self.view)
+        //self.status.text = "登入驗證"
         _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
         _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
-        _con.FBToken = fbToken
+//        _con.UserName = self.userName.text
+//        _con.Password = self.password.text
+        _con.UserName = "imcloudwu@gmail.com"
+        _con.Password = "1234"
         
-        if _con.IsValidated(){
+        if _con.IsValidated("greening"){
             Global.connector = _con
             GetChildList(nil)
         }
@@ -170,6 +167,31 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
             alert.message = "帳號密碼可能錯誤"
             alert.addButtonWithTitle("OK")
             alert.show()
+            Global.Loading.hideActivityIndicator(self.view)
+        }
+        
+    }
+    
+    func LoginWithFB(){
+        Global.Loading.showActivityIndicator(self.view)
+        //self.status.text = "登入驗證"
+        _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
+        _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
+        _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
+        _con.FBToken = fbToken
+        
+        if _con.IsValidated("FB"){
+            Global.connector = _con
+            GetChildList(nil)
+        }
+        else{
+            self.status.text = "登入失敗"
+            let alert = UIAlertView()
+            alert.title = "登入失敗"
+            alert.message = "帳號密碼可能錯誤"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+            Global.Loading.hideActivityIndicator(self.view)
         }
     }
     
@@ -283,6 +305,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                         sender.presentViewController(nextView, animated: true, completion:nil)
                         println("MoveToMainPage from addPage")
                     }
+                    
+                    Global.Loading.hideActivityIndicator(self.view)
                 }
             }
             else{
@@ -294,6 +318,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     func MoveToAddChildPage(){
         var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("myChild") as UIViewController
         self.presentViewController(nextView, animated: true, completion: nil)
+        
+        Global.Loading.hideActivityIndicator(self.view)
     }
 }
 
