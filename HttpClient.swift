@@ -13,14 +13,16 @@ public class HttpClient{
     class func Get(url:String,callback:(data:NSData) -> ()){
         
         var req = NSURLRequest(URL: NSURL(string: url)!)
+        //var req = NSURLRequest(URL: NSURL(string: url)!, cachePolicy: NSURLRequestCachePolicy.UseProtocolCachePolicy, timeoutInterval: 1)
         var conn = NSURLConnection(request: req, delegate: HttpRequest(callback), startImmediately: true)
     }
     
     class func POST(url:String,body:String,callback:(data:NSData) -> ()){
         
         var req = NSMutableURLRequest()
+        //req.timeoutInterval = 0
         req.URL = NSURL(string:url)
-        println(url)
+        //println(url)
         req.HTTPMethod = "POST"
         req.HTTPBody = body.dataUsingEncoding( NSUTF8StringEncoding, allowLossyConversion: true)
         var conn = NSURLConnection(request: req, delegate: HttpRequest(callback), startImmediately: true)
@@ -38,6 +40,10 @@ public class HttpClient{
             //var resopnse = NSString(data: data, encoding: NSUTF8StringEncoding)
             self.callback(data:data)
         }
+        
+//        func connection(connection: NSURLConnection, didFailWithError error: NSError){
+//            self.callback(data:NSData())
+//        }
     }
 }
 

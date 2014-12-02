@@ -101,7 +101,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         _con.AccessPoint = "http://dsns.ischool.com.tw/dsns/dsns"
         _con.Contract = "dsns"
         
-        _con.SendRequestTest("DS.NameService.GetTop10", body: "<a>\(self.server.text)</a>"){ data in
+        _con.SendRequestWithPublic("DS.NameService.GetTop10", body: "<a>\(self.server.text)</a>"){ data in
             //println(NSString(data: data, encoding: NSUTF8StringEncoding))
             
             self._DSNSDic.removeAll(keepCapacity: false)

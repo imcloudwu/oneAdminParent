@@ -43,6 +43,7 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewWillAppear(animated: Bool) {
         actionSheet = UIActionSheet(title: "請選擇小孩", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil)
+        actionSheet.actionSheetStyle = UIActionSheetStyle.BlackOpaque
         for child in Global.ChildList{
             actionSheet.addButtonWithTitle(child.Name)
         }

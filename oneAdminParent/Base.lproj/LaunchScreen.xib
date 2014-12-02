@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -17,7 +18,7 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1AdminParentIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwm-ed-c9l">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1adminicon-in.png" translatesAutoresizingMaskIntoConstraints="NO" id="rwm-ed-c9l">
                     <rect key="frame" x="104" y="70" width="300" height="300"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="rwm-ed-c9l" secondAttribute="height" multiplier="1:1" id="Qns-DL-9eN"/>
@@ -40,6 +41,6 @@
         </view>
     </objects>
     <resources>
-        <image name="1AdminParentIcon.png" width="1055" height="1055"/>
+        <image name="1adminicon-in.png" width="1054" height="1055"/>
     </resources>
 </document>

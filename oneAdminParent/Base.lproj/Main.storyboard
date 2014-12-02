@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ppA-VS-Qn9">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="ppA-VS-Qn9">
     <dependencies>
-        <deployment defaultVersion="1792" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--訊息-->
@@ -567,7 +567,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ocD-he-xrv" kind="relationship" relationship="rootViewController" id="5tP-M1-1mm"/>
+                        <segue destination="ocD-he-xrv" kind="relationship" relationship="rootViewController" id="4Yh-ts-joz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nHM-xl-N6v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -582,7 +582,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="Xh4-I4-mdg" customClass="chil">
+                            <view contentMode="scaleToFill" id="Xh4-I4-mdg">
                                 <rect key="frame" x="-1" y="69" width="376" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -628,6 +628,16 @@
                                             <segue destination="jJ6-D9-jGG" kind="push" id="VXH-2h-CMn"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2vd-cL-khg">
+                                        <rect key="frame" x="165" y="329" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="登出">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logoutBtn_click:" destination="ocD-he-xrv" eventType="touchUpInside" id="7Sc-El-uml"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -635,10 +645,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="我的小孩" id="Z0G-cn-yHF">
-                        <barButtonItem key="rightBarButtonItem" title="刪除" id="Vxu-Pi-VeH">
+                        <barButtonItem key="rightBarButtonItem" title="刪除" id="DvW-Of-9c5">
                             <color key="tintColor" red="1" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="deleteChild:" destination="ocD-he-xrv" id="Acs-fq-lJE"/>
+                                <action selector="deleteChild:" destination="ocD-he-xrv" id="qct-fZ-Ye2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -770,7 +780,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzw-2a-Yaf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="799.5" y="1853.5"/>
+            <point key="canvasLocation" x="800.5" y="1949.5"/>
         </scene>
         <!--Score-->
         <scene sceneID="PvD-QX-NTq">
@@ -796,7 +806,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="p81-7q-gbs">
-                                        <rect key="frame" x="82" y="57" width="184" height="30"/>
+                                        <rect key="frame" x="82" y="50" width="184" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -807,7 +817,7 @@
                                         </connections>
                                     </button>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="oh2-AN-ZlP">
-                                        <rect key="frame" x="19" y="200" width="313" height="393"/>
+                                        <rect key="frame" x="19" y="176" width="313" height="417"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
@@ -866,7 +876,7 @@
                                         </prototypes>
                                     </tableView>
                                     <view contentMode="scaleToFill" id="EWy-d9-h5u">
-                                        <rect key="frame" x="19" y="95" width="313" height="96"/>
+                                        <rect key="frame" x="19" y="80" width="313" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="必修" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0gc-pX-Epq">
@@ -1047,7 +1057,7 @@
         <!--LoginView-->
         <scene sceneID="Hh2-hK-ypa">
             <objects>
-                <viewController title="LoginView" id="ppA-VS-Qn9" customClass="LoginViewCtrl" customModule="oneAdminParent" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginView" title="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ppA-VS-Qn9" customClass="LoginViewCtrl" customModule="oneAdminParent" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Qi-KI-HsB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1077,10 +1087,6 @@
                                             <outlet property="delegate" destination="ppA-VS-Qn9" id="Laz-dp-F0X"/>
                                         </connections>
                                     </textField>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1AdminParentIcon.png" id="UWH-Kz-3xW">
-                                        <rect key="frame" x="90" y="20" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="請登錄您的帳號" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XuT-ex-m8y">
                                         <rect key="frame" x="20" y="171" width="240" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1088,15 +1094,8 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Admin for Parents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cfk-GP-hcF">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1Admin for Parents" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cfk-GP-hcF">
                                         <rect key="frame" x="40" y="134" width="200" height="15"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o6y-aB-I28">
-                                        <rect key="frame" x="35" y="333" width="211" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -1119,6 +1118,17 @@
                                             <outlet property="delegate" destination="ppA-VS-Qn9" id="K0Y-7w-LKU"/>
                                         </connections>
                                     </textField>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1adminicon-in.png" id="Y3E-si-Hj0">
+                                        <rect key="frame" x="81" y="1" width="125" height="125"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="o6y-aB-I28">
+                                        <rect key="frame" x="35" y="439" width="211" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -1211,7 +1221,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1AdminParentIcon.png" width="1055" height="1055"/>
+        <image name="1adminicon-in.png" width="1054" height="1055"/>
         <image name="Note.png" width="33" height="32"/>
         <image name="QRCode.jpg" width="148" height="148"/>
         <image name="add.png" width="35" height="30"/>

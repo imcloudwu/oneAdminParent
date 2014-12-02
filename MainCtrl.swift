@@ -31,6 +31,6 @@ class MainCtrl: UITabBarController {
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
-        println("Woops")
+        //println("Woops")
     }
 }

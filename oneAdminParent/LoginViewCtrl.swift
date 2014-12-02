@@ -116,29 +116,29 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     
     //When FB login
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
-        println("fb log in")
+        Global.Loading.showActivityIndicator(self.view)
+        //println("fb log in")
     }
     
     //after FB login
     func loginViewFetchedUserInfo(loginView: FBLoginView!, user: FBGraphUser!) {
         
-        if fbToken == nil{
-            fbToken = FBSession.activeSession().accessTokenData.accessToken
-            LoginWithFB()
-            //println("user name: \(user.name)")
-            //println("token: \(fbToken)")
-            //println(user.objectForKey("email"))
-        }
+        fbToken = FBSession.activeSession().accessTokenData.accessToken
+        LoginWithFB()
+        
+        //            println("user name: \(user.name)")
+        //            println("token: \(fbToken)")
+        //            println(user.objectForKey("email"))
     }
     
     //after FB logout
     func loginViewShowingLoggedOutUser(loginView: FBLoginView!) {
-        println("fb log out")
+        //println("fb log out")
     }
     
     //FB login error
     func loginView(loginView: FBLoginView!, handleError error: NSError!) {
-        println("fb login error")
+        //println("fb login error")
     }
     
     @IBAction func loginBtn(sender: AnyObject) {
@@ -151,10 +151,10 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
         _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
-//        _con.UserName = self.userName.text
-//        _con.Password = self.password.text
-        _con.UserName = "imcloudwu@gmail.com"
-        _con.Password = "1234"
+        _con.UserName = self.userName.text
+        _con.Password = self.password.text
+        //        _con.UserName = "cloud.wu@ischool.com.tw"
+        //        _con.Password = "1234"
         
         if _con.IsValidated("greening"){
             Global.connector = _con
@@ -242,6 +242,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                 HttpClient.Get(GetDoorWayURL(dsns)){data in
                     self.status.text = "取得主機位置"
                     var xml = SWXMLHash.parse(data)
+                    //println(NSString(data: data, encoding: NSUTF8StringEncoding))
                     for elem in xml["Envelope"]["Body"]["DoorwayURL"]{
                         if let DoorwayURL = elem.element?.text{
                             //println(DoorwayURL)
@@ -249,7 +250,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                             var con = self._con.Clone()
                             con.AccessPoint = DoorwayURL
                             con.Contract = "ischool.parent.app"
-                            con.GetSessionID()
+                            //con.GetSessionID()
+                            con.SessionID = nil
                             
                             con.SendRequest("main.GetMyChildren", body: ""){data in
                                 //println(NSString(data: data, encoding: NSUTF8StringEncoding))
@@ -257,14 +259,30 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                                 check[dsns] = true
                                 self.status.text = "取得主機\(dsns)小孩清單"
                                 var xml = SWXMLHash.parse(data)
-                                for elem in xml["Envelope"]["Body"]["Student"] {
-                                    if let id = elem["StudentId"].element?.text{
-                                        if let name = elem["StudentName"].element?.text{
+                                
+                                for student in xml["Envelope"]["Body"]["Student"]{
+                                    if let id = student["StudentId"].element?.text{
+                                        if let name = student["StudentName"].element?.text{
                                             Global.ChildList.append(Child(AccessPoint: con.AccessPoint, ID: id, Name: name, Con: con))
                                             //println(id)
                                         }
                                     }
                                 }
+                                
+                                //                                if let envelope = xml["Envelope"].element{
+                                //                                    if let body = xml["Envelope"]["Body"].element{
+                                //                                        if let student = xml["Envelope"]["Body"]["Student"].element{
+                                //                                            for elem in xml["Envelope"]["Body"]["Student"] {
+                                //                                                if let id = elem["StudentId"].element?.text{
+                                //                                                    if let name = elem["StudentName"].element?.text{
+                                //                                                        Global.ChildList.append(Child(AccessPoint: con.AccessPoint, ID: id, Name: name, Con: con))
+                                //                                                        //println(id)
+                                //                                                    }
+                                //                                                }
+                                //                                            }
+                                //                                        }
+                                //                                    }
+                                //                                }
                                 
                                 self.MoveToMainPage(check,sender: sender)
                             }
@@ -299,11 +317,11 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                     
                     if sender == nil{
                         self.presentViewController(nextView, animated: true, completion: nil)
-                        println("MoveToMainPage from login")
+                        //println("MoveToMainPage from login")
                     }
                     else{
                         sender.presentViewController(nextView, animated: true, completion:nil)
-                        println("MoveToMainPage from addPage")
+                        //println("MoveToMainPage from addPage")
                     }
                     
                     Global.Loading.hideActivityIndicator(self.view)

@@ -19,8 +19,6 @@ class ChildManageViewCtrl: UIViewController,UIActionSheetDelegate,UIAlertViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         Global.AdjustView(contentView)
-        
-        self.navigationController
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -67,5 +65,11 @@ class ChildManageViewCtrl: UIViewController,UIActionSheetDelegate,UIAlertViewDel
     
     @IBAction func deleteChild(sender: AnyObject) {
         actionSheet.showInView(self.view)
+    }
+    
+    @IBAction func logoutBtn_click(sender: AnyObject) {
+        FBSession.activeSession().closeAndClearTokenInformation()
+        Global.LVC.status.text = ""
+        Global.LVC.dismissViewControllerAnimated(true, completion: nil)
     }
 }
