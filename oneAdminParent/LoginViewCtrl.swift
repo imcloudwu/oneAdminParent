@@ -30,6 +30,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        status.hidden = true
+        
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         _screenHeight = screenSize.height
         
@@ -116,6 +118,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     
     //When FB login
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
+        self.view.endEditing(true)
         Global.Loading.showActivityIndicator(self.view)
         //println("fb log in")
     }
@@ -142,19 +145,21 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     @IBAction func loginBtn(sender: AnyObject) {
+        self.view.endEditing(true)
+        Global.Loading.showActivityIndicator(self.view)
         LoginWithGreening()
     }
     
     func LoginWithGreening(){
-        Global.Loading.showActivityIndicator(self.view)
+        //Global.Loading.showActivityIndicator(self.view)
         //self.status.text = "登入驗證"
         _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
         _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
         _con.UserName = self.userName.text
         _con.Password = self.password.text
-        //        _con.UserName = "cloud.wu@ischool.com.tw"
-        //        _con.Password = "1234"
+//                _con.UserName = "imcloudwu@gmail.com"
+//                _con.Password = "1234"
         
         if _con.IsValidated("greening"){
             Global.connector = _con
@@ -173,7 +178,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     func LoginWithFB(){
-        Global.Loading.showActivityIndicator(self.view)
+        //Global.Loading.showActivityIndicator(self.view)
         //self.status.text = "登入驗證"
         _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
         _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
@@ -196,6 +201,10 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     func GetChildList(sender:UIViewController!){
+        
+        if sender != nil{
+            Global.Loading.showActivityIndicator(sender.view)
+        }
         
         Login.token = 0
         
@@ -238,6 +247,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
             }
             
             //取得DSNS的URL清單
+            Global.DSNS = dsnsList
             for dsns in dsnsList{
                 HttpClient.Get(GetDoorWayURL(dsns)){data in
                     self.status.text = "取得主機位置"
@@ -290,9 +300,6 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                     }
                 }
             }
-            
-            Global.DSNS = dsnsList
-            
             //            var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("Main") as UIViewController
             //            self.presentViewController(nextView, animated: true, completion: nil)
         }
@@ -324,7 +331,12 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                         //println("MoveToMainPage from addPage")
                     }
                     
-                    Global.Loading.hideActivityIndicator(self.view)
+                    if sender != nil{
+                        Global.Loading.hideActivityIndicator(sender.view)
+                    }
+                    else{
+                        Global.Loading.hideActivityIndicator(self.view)
+                    }
                 }
             }
             else{

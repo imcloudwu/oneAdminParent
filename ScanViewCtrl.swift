@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
+class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate {
     
     @IBOutlet weak var contentView: UIView!
     
@@ -79,6 +79,10 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
         _videoPreviewLayer?.removeFromSuperlayer()
     }
     
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int){
+        Global.GetChildList(self)
+    }
+    
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!){
         
         if metadataObjects != nil && metadataObjects.count > 0 {
@@ -132,12 +136,11 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
                                 
                                 if success{
                                     let alert = UIAlertView()
+                                    alert.delegate = self
                                     alert.title = "系統提示"
                                     alert.message = "加入成功"
                                     alert.addButtonWithTitle("OK")
                                     alert.show()
-                                    
-                                    Global.GetChildList(self)
                                 }
                                 else{
                                     let alert = UIAlertView()
@@ -146,7 +149,6 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
                                     alert.addButtonWithTitle("OK")
                                     alert.show()
                                 }
-                                
                                 //                        println(Global.ChildList)
                                 //                        self.dismissViewControllerAnimated(false, completion: nil)
                             }

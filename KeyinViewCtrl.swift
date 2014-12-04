@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
+class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIAlertViewDelegate {
     
     var _DSNSDic:Dictionary<String,String>!
     var _display:[String]!
@@ -94,6 +94,10 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
         autoView.hidden = true
         server.text = _display[indexPath.row]
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int){
+        Global.GetChildList(self)
     }
     
     func search() {
@@ -184,12 +188,11 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                         
                         if success{
                             let alert = UIAlertView()
+                            alert.delegate = self
                             alert.title = "系統提示"
                             alert.message = "加入成功"
                             alert.addButtonWithTitle("OK")
                             alert.show()
-                            
-                            Global.GetChildList(self)
                         }
                         else{
                             let alert = UIAlertView()

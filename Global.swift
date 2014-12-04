@@ -24,27 +24,28 @@ struct Global{
     }
     
     static func AdjustView(content:UIView){
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenHeight = screenSize.height
-        
-        if screenHeight >= 736{
-            content.frame.offset(dx: 19, dy: 0)
-        }
-        else if screenHeight <= 568{
-            content.frame.offset(dx: -28, dy: 0)
-        }
+//        let screenSize: CGRect = UIScreen.mainScreen().bounds
+//        let screenHeight = screenSize.height
+//        //let screenWidth = screenSize.width
+//        
+//        if screenHeight >= 736{
+//            content.frame.offset(dx: 19, dy: 0)
+//        }
+//        else if screenHeight <= 568{
+//            content.frame.offset(dx: -28, dy: 0)
+//        }
     }
     
     static func AdjustTableView(content:UIView){
-        let screenSize: CGRect = UIScreen.mainScreen().bounds
-        let screenHeight = screenSize.height
-        
-        if screenHeight == 480{
-            content.frame.size.height += -187
-        }
-        else if screenHeight == 568{
-            content.frame.size.height += -99
-        }
+//        let screenSize: CGRect = UIScreen.mainScreen().bounds
+//        let screenHeight = screenSize.height
+//        
+//        if screenHeight == 480{
+//            content.frame.size.height += -187
+//        }
+//        else if screenHeight == 568{
+//            content.frame.size.height += -99
+//        }
     }
 }
 

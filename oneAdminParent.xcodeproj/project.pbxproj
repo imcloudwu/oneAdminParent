@@ -43,6 +43,7 @@
 		61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61871A19CE7900488838 /* MessageViewCtrl.swift */; };
 		61BD618A1A19D4E700488838 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61891A19D4E700488838 /* CustomCell.swift */; };
 		61BD618C1A19FA8300488838 /* MsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD618B1A19FA8300488838 /* MsgView.swift */; };
+		61E1F8411A3051F000C564CD /* 1ADMIN.png in Resources */ = {isa = PBXBuildFile; fileRef = 61E1F8401A3051F000C564CD /* 1ADMIN.png */; };
 		61EE731A1A15F83800E949C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE73191A15F83800E949C6 /* AppDelegate.swift */; };
 		61EE731C1A15F83800E949C6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE731B1A15F83800E949C6 /* FirstViewController.swift */; };
 		61EE731E1A15F83800E949C6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE731D1A15F83800E949C6 /* SecondViewController.swift */; };
@@ -101,6 +102,7 @@
 		61BD61871A19CE7900488838 /* MessageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCtrl.swift; sourceTree = "<group>"; };
 		61BD61891A19D4E700488838 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		61BD618B1A19FA8300488838 /* MsgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgView.swift; sourceTree = "<group>"; };
+		61E1F8401A3051F000C564CD /* 1ADMIN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1ADMIN.png; sourceTree = "<group>"; };
 		61EE73141A15F83800E949C6 /* oneAdminParent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = oneAdminParent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EE73181A15F83800E949C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61EE73191A15F83800E949C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		61B5074D1A249461003558BA /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				61E1F8401A3051F000C564CD /* 1ADMIN.png */,
 				6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */,
 				617B0C2D1A287997005DC9A4 /* iTunesArtwork.png */,
 				617B0C1D1A287655005DC9A4 /* Icon-40.png */,
@@ -346,6 +349,7 @@
 				614018E01A26DDF300620A7F /* Note.png in Resources */,
 				61EE73231A15F83800E949C6 /* Images.xcassets in Resources */,
 				614018E21A26DDF300620A7F /* school.png in Resources */,
+				61E1F8411A3051F000C564CD /* 1ADMIN.png in Resources */,
 				617B0C2A1A287655005DC9A4 /* Icon-76@2x.png in Resources */,
 				617B0C281A287655005DC9A4 /* Icon-60@3x.png in Resources */,
 				617B0C291A287655005DC9A4 /* Icon-76.png in Resources */,
@@ -534,8 +538,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iOS Distribution: ischool Corporation";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iOS Distribution: ischool Corporation";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/cloud/Documents/FacebookSDK,

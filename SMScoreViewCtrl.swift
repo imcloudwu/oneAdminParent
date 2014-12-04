@@ -200,6 +200,17 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     
     func GetData(){
         _data.removeAll(keepCapacity: false)
+        _displayData.removeAll(keepCapacity: false)
+        self.tableView.reloadData()
+        
+        self.total.text = "\(0) / \(0)"
+        self.require.text = "\(0)"
+        self.unrequire.text = "\(0)"
+        self.budinR.text = "\(0)"
+        self.budinUR.text = "\(0)"
+        self.xiodinR.text = "\(0)"
+        self.xiodinUR.text = "\(0)"
+        self.learn.text = "\(0)"
         
         Global.CurrentChild.Con.SendRequest("semesterScoreSH.GetChildSemsScore", body: "<Request><ScoreInfo/><RefStudentId>\(Global.CurrentChild.ID)</RefStudentId></Request>") { (response) -> () in
             

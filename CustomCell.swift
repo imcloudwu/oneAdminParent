@@ -113,7 +113,6 @@ class DemeritCell: UITableViewCell {
 
 class SMScoreCell: UITableViewCell {
     
-    
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var credit: UILabel!

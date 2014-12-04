@@ -11,25 +11,35 @@ import UIKit
 class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate {
     
     var _data:[Msg]!
+    var _displayData:[Msg]!
     var refreshControl:UIRefreshControl!
+    var lastIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var content: UIView!
+    @IBOutlet weak var segment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        content.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        
+        content.setNeedsLayout()
+        content.layoutIfNeeded()
+        
+        self.view.layoutSubviews()
         
         Global.AdjustView(content)
         Global.AdjustTableView(tableView)
-    
+        
         tableView.dataSource = self
         tableView.delegate = self
         
         _data = [Msg]()
+        _displayData = [Msg]()
         
         self.refreshControl = UIRefreshControl()
-        self.refreshControl.attributedTitle = NSAttributedString(string: "向上捲動更新")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
         self.refreshControl.addTarget(self, action: "Refresh", forControlEvents: UIControlEvents.ValueChanged)
         self.tableView.addSubview(refreshControl)
         
@@ -42,8 +52,22 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func segment_selected(sender: AnyObject) {
+        
+        _displayData.removeAll(keepCapacity: false)
+        
+        if segment.selectedSegmentIndex == 0 || segment.selectedSegmentIndex == 1{
+            _displayData = _data
+        }
+        else{
+            //_displayData = []
+        }
+        
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return _data.count
+        return _displayData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
@@ -54,11 +78,11 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
 //        
 //        cell.cellView.layer.cornerRadius = 5
         
-        cell.schoolName.text = _data[indexPath.row].SchoolName
-        cell.unit.text = _data[indexPath.row].Unit
-        cell.date.text = _data[indexPath.row].Date
-        cell.subject.text = "  \(_data[indexPath.row].Subject)"
-        cell.content.text = _data[indexPath.row].Content
+        cell.schoolName.text = _displayData[indexPath.row].SchoolName
+        cell.unit.text = _displayData[indexPath.row].Unit
+        cell.date.text = _displayData[indexPath.row].Date
+        cell.subject.text = "  \(_displayData[indexPath.row].Subject)"
+        cell.content.text = _displayData[indexPath.row].Content
         
         
         return cell
@@ -68,7 +92,7 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("msgView") as MsgView
 //        nextView.subject = "[\(_data[indexPath.row].Unit)] \(_data[indexPath.row].Subject)"
 //        nextView.content = _data[indexPath.row].Content
-        nextView.obj = _data[indexPath.row]
+        nextView.obj = _displayData[indexPath.row]
         
         self.navigationController?.pushViewController(nextView, animated: true)
     }
@@ -104,7 +128,9 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
                     
                     self._data.sort{$0.Date > $1.Date}
                     
-                    self.tableView.reloadData()
+                    self.segment_selected(self)
+                    
+                    //self.tableView.reloadData()
                 }
             }
         }
