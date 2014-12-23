@@ -17,7 +17,7 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
     var _displayData:[Attendance]!
     
     @IBOutlet weak var studentBtn: UIButton!
-    @IBOutlet weak var contentView: UIView!
+    //@IBOutlet weak var contentView: UIView!
     @IBOutlet weak var sumLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segment: UISegmentedControl!
@@ -25,8 +25,8 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Global.AdjustView(contentView)
-        Global.AdjustTableView(tableView)
+        //Global.AdjustView(contentView)
+        //Global.AdjustTableView(tableView)
         tableView.delegate = self
         tableView.dataSource = self
         

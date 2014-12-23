@@ -15,7 +15,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     var actionSheet:UIActionSheet!
     
-    @IBOutlet weak var contentView: UIView!
+    //@IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var studentBtn: UIButton!
     @IBOutlet weak var segment: UISegmentedControl!
@@ -34,7 +34,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         _displayData = [Record]()
         
         Global.AdjustTableView(tableView)
-        Global.AdjustView(contentView)
+        //Global.AdjustView(contentView)
         
         labelAll.layer.borderWidth = 1
         labelAll.layer.borderColor = UIColor.grayColor().CGColor

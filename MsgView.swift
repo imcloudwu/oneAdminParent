@@ -16,16 +16,18 @@ class MsgView: UIViewController{
     @IBOutlet weak var subject: UILabel!
     @IBOutlet weak var textView: UITextView!
     
-    @IBOutlet weak var sv: UIScrollView!
+    //@IBOutlet weak var sv: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sv.contentSize = CGSize(width: 335, height: 700)
-        Global.AdjustView(sv)
+        //sv.contentSize = CGSize(width: 335, height: 700)
+        //Global.AdjustView(sv)
         
         subject.layer.cornerRadius = 5
         subject.layer.masksToBounds = true
+        textView.layer.cornerRadius = 5
+        textView.layer.masksToBounds = true
         
 //        let screenSize: CGRect = UIScreen.mainScreen().bounds
 //        let screenHeight = screenSize.height;

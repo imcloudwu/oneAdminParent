@@ -20,10 +20,17 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        
+        subject.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        
+        content.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        
         cellView.layer.borderWidth = 2
         cellView.layer.borderColor = Global.GreenColor.CGColor
         
         cellView.layer.cornerRadius = 5
+        
         // Initialization code
     }
     
@@ -40,9 +47,13 @@ class AbsenceCell: UITableViewCell {
     @IBOutlet weak var absenceType: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var period: UILabel!
+    @IBOutlet weak var cellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        absenceType.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         absenceType.layer.cornerRadius = 5
         absenceType.layer.masksToBounds = true
@@ -64,9 +75,14 @@ class MeritCell: UITableViewCell {
     @IBOutlet weak var C: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var reason: UILabel!
+    @IBOutlet weak var cellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         A.layer.cornerRadius = 10
         A.layer.masksToBounds = true
@@ -91,9 +107,14 @@ class DemeritCell: UITableViewCell {
     @IBOutlet weak var C: UILabel!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var reason: UILabel!
+    @IBOutlet weak var cellView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         A.layer.cornerRadius = 10
         A.layer.masksToBounds = true
@@ -121,6 +142,12 @@ class SMScoreCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        cellView.layer.frame.size.width = self.contentView.layer.frame.size.width
+        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        
+        type.bounds = cellView.bounds
+        type.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin|UIViewAutoresizing.FlexibleWidth
         
         cellView.layer.cornerRadius = 5
         // Initialization code

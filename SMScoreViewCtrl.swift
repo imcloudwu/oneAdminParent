@@ -16,7 +16,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     var actionSheet:UIActionSheet!
     var sysmActionSheet:UIActionSheet!
     
-    @IBOutlet weak var contentView: UIView!
+    //@IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var summaryView: UIView!
     @IBOutlet weak var totalView: UIView!
@@ -49,8 +49,8 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         _data = [SYSM]()
         _displayData = [SemsScore]()
         
-        Global.AdjustTableView(tableView)
-        Global.AdjustView(contentView)
+        //Global.AdjustTableView(tableView)
+        //Global.AdjustView(contentView)
         
         tableView.delegate = self
         tableView.dataSource = self

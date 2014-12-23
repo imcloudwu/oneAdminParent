@@ -16,21 +16,21 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     var lastIndex = 0
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var content: UIView!
+    //@IBOutlet weak var content: UIView!
     @IBOutlet weak var segment: UISegmentedControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        content.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
+        //content.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleWidth
         
-        content.setNeedsLayout()
-        content.layoutIfNeeded()
+        //content.setNeedsLayout()
+        //content.layoutIfNeeded()
         
         self.view.layoutSubviews()
         
-        Global.AdjustView(content)
-        Global.AdjustTableView(tableView)
+        //Global.AdjustView(content)
+        //Global.AdjustTableView(tableView)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -112,7 +112,8 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
                 finish.append(child.Con.AccessPoint)
                 
                 child.Con.SendRequest("im.GetMessage", body: "<Request><LastUid>0</LastUid></Request>"){data in
-                    //println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                    println("==================")
+                    println(NSString(data: data, encoding: NSUTF8StringEncoding))
                     
                     var xml = SWXMLHash.parse(data)
                     for msg in xml["Envelope"]["Body"]["Response"]["Message"]{

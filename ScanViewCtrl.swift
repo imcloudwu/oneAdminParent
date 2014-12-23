@@ -11,8 +11,6 @@ import AVFoundation
 
 class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIAlertViewDelegate {
     
-    @IBOutlet weak var contentView: UIView!
-    
     var _captureSession: AVCaptureSession? = nil
     var _videoPreviewLayer: AVCaptureVideoPreviewLayer? = nil
     var _isReading: Bool = false
@@ -21,7 +19,7 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIAl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Global.AdjustView(contentView)
+        //Global.AdjustView(contentView)
         
         _videoPreview.layer.cornerRadius = 5
         // Do any additional setup after loading the view, typically from a nib.

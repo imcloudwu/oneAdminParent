@@ -19,7 +19,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     var _screenHeight:CGFloat!
     var _orginframe:CGRect!
     
-    @IBOutlet weak var content: UIView!
+    //@IBOutlet weak var content: UIView!
     
     @IBOutlet weak var fbLoginView: FBLoginView!
     @IBOutlet weak var status: UILabel!
@@ -35,17 +35,17 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         let screenSize: CGRect = UIScreen.mainScreen().bounds
         _screenHeight = screenSize.height
         
-        Global.AdjustView(content)
-        _orginframe = CGRectMake(self.content.frame.origin.x, self.content.frame.origin.y, self.view.bounds.width, self.view.bounds.height)
+        //Global.AdjustView(content)
+        //_orginframe = CGRectMake(self.content.frame.origin.x, self.content.frame.origin.y, self.view.bounds.width, self.view.bounds.height)
         
         button.layer.cornerRadius = 5
         
         //self.frameView = UIView(frame: CGRectMake(0, 0, self.view.bounds.width, self.view.bounds.height))
         
         // Keyboard stuff.
-        var center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
-        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
-        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
+//        var center: NSNotificationCenter = NSNotificationCenter.defaultCenter()
+//        center.addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+//        center.addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
         
         fbLoginView.delegate = self
         fbLoginView.readPermissions = ["public_profile","email","user_friends"]
@@ -81,40 +81,40 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         self.view.endEditing(true)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        
-        if self._screenHeight <= 568{
-            var info:NSDictionary = notification.userInfo!
-            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
-            
-            var keyboardHeight:CGFloat = keyboardSize.height
-            
-            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
-            
-            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-                }, completion: nil)
-        }
-    }
+//    func keyboardWillShow(notification: NSNotification) {
+//        
+//        if self._screenHeight <= 568{
+//            var info:NSDictionary = notification.userInfo!
+//            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+//            
+//            var keyboardHeight:CGFloat = keyboardSize.height
+//            
+//            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+//            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+//            
+//            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//                self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y - keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+//                }, completion: nil)
+//        }
+//    }
     
-    func keyboardWillHide(notification: NSNotification) {
-        
-        if self._screenHeight <= 568{
-            var info:NSDictionary = notification.userInfo!
-            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
-            
-            var keyboardHeight:CGFloat = keyboardSize.height
-            
-            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
-            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
-            
-            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
-                //self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
-                self.content.frame = self._orginframe
-                }, completion: nil)
-        }
-    }
+//    func keyboardWillHide(notification: NSNotification) {
+//        
+//        if self._screenHeight <= 568{
+//            var info:NSDictionary = notification.userInfo!
+//            var keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+//            
+//            var keyboardHeight:CGFloat = keyboardSize.height
+//            
+//            //var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as NSNumber
+//            var animationDuration:CGFloat = info[UIKeyboardAnimationDurationUserInfoKey] as CGFloat
+//            
+//            UIView.animateWithDuration(0.25, delay: 0.25, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+//                //self.content.frame = CGRectMake(self.content.frame.origin.x, (self.content.frame.origin.y + keyboardHeight), self.view.bounds.width, self.view.bounds.height)
+//                self.content.frame = self._orginframe
+//                }, completion: nil)
+//        }
+//    }
     
     //When FB login
     func loginViewShowingLoggedInUser(loginView: FBLoginView!) {
@@ -158,8 +158,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
         _con.UserName = self.userName.text
         _con.Password = self.password.text
-//                _con.UserName = "imcloudwu@gmail.com"
-//                _con.Password = "1234"
+                _con.UserName = "imcloudwu@gmail.com"
+                _con.Password = "1234"
         
         if _con.IsValidated("greening"){
             Global.connector = _con

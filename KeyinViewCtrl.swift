@@ -17,7 +17,6 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     var isBusy = false
     
-    @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var submitBtn: UIButton!
     @IBOutlet weak var autoView: UITableView!
     @IBOutlet weak var server: UITextField!
@@ -32,7 +31,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         _DSNSDic = Dictionary<String,String>()
         _display = [String]()
         
-        Global.AdjustView(contentView)
+        //Global.AdjustView(contentView)
         
         submitBtn.layer.cornerRadius = 5
         
@@ -115,6 +114,13 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
             var xml = SWXMLHash.parse(data)
             for app in xml["Envelope"]["Body"]["Response"]["Application"] {
                 if let dsns = app.element?.attributes["Name"]{
+                    
+                    if dsns.hasPrefix("ta."){
+                        continue;
+                    }else if dsns.hasPrefix("sa."){
+                        continue;
+                    }
+                    
                     if let cdata = app.element?.text {
                         var temp = SWXMLHash.parse(cdata)
                         

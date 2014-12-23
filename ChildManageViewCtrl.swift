@@ -14,11 +14,9 @@ class ChildManageViewCtrl: UIViewController,UIActionSheetDelegate,UIAlertViewDel
     var child:Child!
     var childIndex:Int!
     
-    @IBOutlet weak var contentView: UIView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        Global.AdjustView(contentView)
+        //Global.AdjustView(contentView)
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -31,14 +31,23 @@ public class HttpClient{
     class HttpRequest:NSObject{
         
         private var callback:(data:NSData) -> ()
+        private var _data:NSMutableData!
         
         init(callback:(data:NSData) -> ()){
             self.callback = callback
+            self._data = NSMutableData()
         }
         
         func connection(connection: NSURLConnection, didReceiveData data: NSData){
             //var resopnse = NSString(data: data, encoding: NSUTF8StringEncoding)
-            self.callback(data:data)
+            self._data.appendData(data)
+            
+        }
+        
+        func connectionDidFinishLoading(connection: NSURLConnection!)
+        {
+            self.callback(data:self._data)
+            // This will be called when the data loading is finished i.e. there is no data left to be received and now you can process the data.
         }
         
 //        func connection(connection: NSURLConnection, didFailWithError error: NSError){
