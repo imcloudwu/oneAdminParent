@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6117F0001A4D1CD2000CC096 /* embedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117EFFF1A4D1CD2000CC096 /* embedView.swift */; };
 		611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */; };
 		6121CF4D1A2D8CE7008300C4 /* 1adminicon-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */; };
 		612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6117EFFF1A4D1CD2000CC096 /* embedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = embedView.swift; sourceTree = "<group>"; };
 		611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardViewCtrl.swift; sourceTree = "<group>"; };
 		6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1adminicon-in.png"; sourceTree = "<group>"; };
 		612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewCtrl.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 		61EE730B1A15F83800E949C6 = {
 			isa = PBXGroup;
 			children = (
+				6117EFFF1A4D1CD2000CC096 /* embedView.swift */,
 				61D2FA401A4977AE007E9A89 /* SWXMLHash.swift */,
 				613E05371A23348500369344 /* KeyinViewCtrl.swift */,
 				613E05351A23346000369344 /* ScanViewCtrl.swift */,
@@ -396,6 +399,7 @@
 				613D6AC51A199C0A00DD3681 /* Global.swift in Sources */,
 				612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */,
 				613E05361A23346000369344 /* ScanViewCtrl.swift in Sources */,
+				6117F0001A4D1CD2000CC096 /* embedView.swift in Sources */,
 				611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

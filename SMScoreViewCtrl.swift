@@ -33,6 +33,9 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     @IBOutlet weak var xiodinUR: UILabel!
     @IBOutlet weak var learn: UILabel!
     
+    @IBOutlet weak var embedView: UIView!
+    
+    
     @IBAction func studentBtn_click(sender: AnyObject) {
         actionSheet.showInView(self.view)
     }
@@ -93,23 +96,122 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             if buttonIndex > 0{
                 
                 self.sysmBtn.setTitle("\(_data[buttonIndex - 1].SchoolYear)學年度第\(_data[buttonIndex - 1].Semester)學期", forState: UIControlState.Normal)
-                //println(_sysm[buttonIndex - 1].Content)
+                println(_data[buttonIndex - 1].Content)
                 
                 _displayData.removeAll(keepCapacity: false)
-                var xml = SWXMLHash.parse(_data[buttonIndex - 1].Content)
-                for subj in xml["SemesterSubjectScoreInfo"]["Subject"]{
-                    var name = subj.element?.attributes["科目"]
-                    var score = subj.element?.attributes["原始成績"]
-                    var credit = subj.element?.attributes["開課學分數"]
-                    var isXiodin = subj.element?.attributes["修課校部訂"] == "校訂" ? true : false
-                    var isReach = subj.element?.attributes["是否取得學分"] == "是" ? true : false
-                    var isRequire = subj.element?.attributes["修課必選修"] == "必修" ? true : false
-                    var isLearning = subj.element?.attributes["開課分項類別"] == "實習科目" ? true : false
-                    
-                    var ss = SemsScore(Name: name, Score: score, Credit: credit, IsXiodin: isXiodin, IsRequire: isRequire, IsReach: isReach, IsLearning: isLearning)
-                    
-                    _displayData.append(ss)
+                var tempDetail = [SemsScore]()
+                var tempTitle = [SemsScore]()
+                
+                var xml = SWXMLHash.parse("<root>\(_data[buttonIndex - 1].Content)</root>")
+                
+                var underScoreCount = 0
+                var learnDomainScore = ""
+                var courseLearnScore = ""
+                var isJH = false
+                //先判斷是否為國中資料
+                if let hasLearnDomainScore = xml["root"]["LearnDomainScore"].element?.text{
+                    //println(hasLearnDomainScore)
+                    learnDomainScore = hasLearnDomainScore
+                    isJH = true
                 }
+                if let hasourseLearnScore = xml["root"]["CourseLearnScore"].element?.text{
+                    //println(hasLearnDomainScore)
+                    courseLearnScore = hasourseLearnScore
+                    isJH = true
+                }
+                
+                //create smscore
+                for subj in xml["root"]["SemesterSubjectScoreInfo"]["Subject"]{
+                    
+                    //變數初始化
+                    var name:String!
+                    var score:String!
+                    var credit:String!
+                    var domain:String!
+                    var isXiodin = false
+                    var isReach = false
+                    var isRequire = false
+                    var isLearning = false
+                    var isTitle = false
+                    
+                    name = subj.element?.attributes["科目"]
+                    
+                    if(isJH){
+                        score = subj.element?.attributes["成績"]
+                        let p:String! = subj.element?.attributes["節數"]
+                        let c:String! = subj.element?.attributes["權數"]
+                        domain = subj.element?.attributes["領域"]
+                        credit = "\(p) / \(c)"
+                    }
+                    else{
+                        score = subj.element?.attributes["原始成績"]
+                        credit = subj.element?.attributes["開課學分數"]
+                        isXiodin = subj.element?.attributes["修課校部訂"] == "校訂" ? true : false
+                        isReach = subj.element?.attributes["是否取得學分"] == "是" ? true : false
+                        isRequire = subj.element?.attributes["修課必選修"] == "必修" ? true : false
+                        isLearning = subj.element?.attributes["開課分項類別"] == "實習科目" ? true : false
+                    }
+                    
+                    var ss = SemsScore(Name: name, Score: score, Credit: credit, IsXiodin: isXiodin, IsRequire: isRequire, IsReach: isReach, IsLearning: isLearning, IsJH: isJH, Domain: domain, IsTitle: isTitle)
+                    
+                    tempDetail.append(ss)
+                }
+                
+                //create title
+                for subj in xml["root"]["Domains"]["Domain"]{
+                    
+                    //變數初始化
+                    var name:String!
+                    var score:String!
+                    var credit:String!
+                    var domain:String!
+                    var isXiodin = false
+                    var isReach = false
+                    var isRequire = false
+                    var isLearning = false
+                    var isTitle = true
+                    
+                    domain = subj.element?.attributes["領域"]
+                    score = subj.element?.attributes["成績"]
+                    let p:String! = subj.element?.attributes["節數"]
+                    let c:String! = subj.element?.attributes["權數"]
+                    credit = "\(p) / \(c)"
+                
+                    var ss = SemsScore(Name: name, Score: score, Credit: credit, IsXiodin: isXiodin, IsRequire: isRequire, IsReach: isReach, IsLearning: isLearning, IsJH: isJH, Domain: domain, IsTitle: isTitle)
+                    
+                    tempTitle.append(ss)
+                }
+                
+                embedView.hidden = true
+                if(isJH){
+                    embedView.hidden = false
+                    
+                    _displayData.append(SemsScore(Name: "column", Score: "", Credit: "", IsXiodin: false, IsRequire: false, IsReach: false, IsLearning: false, IsJH: false, Domain: "column", IsTitle: true))
+                    
+                    for tt in tempTitle{
+                        
+                        //累計不合格的領域數目
+                        if tt.Score.floatValue < 60{
+                            underScoreCount++
+                        }
+                        
+                        _displayData.append(tt)
+                        for td in tempDetail{
+                            if(td.Domain == tt.Domain){
+                                _displayData.append(td)
+                            }
+                        }
+                    }
+                }
+                else{
+                    embedView.hidden = true
+                    _displayData = tempDetail
+                }
+                
+                //Set embed view value
+                Global.EmbedView.passing.text = "\(underScoreCount)"
+                Global.EmbedView.domain.text = learnDomainScore
+                Global.EmbedView.course.text = courseLearnScore
                 
                 var totalGet = 0
                 var total = 0
@@ -176,26 +278,80 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell = tableView.dequeueReusableCellWithIdentifier("smScoreCell") as SMScoreCell
-        cell.subject.text = _displayData[indexPath.row].Name
-        cell.credit.text = "學分 \(_displayData[indexPath.row].Credit)"
-        cell.score.text = "成績 \(_displayData[indexPath.row].Score)"
         
-        var require = _displayData[indexPath.row].IsRequire == true ? "必修" : "選修"
-        var type = _displayData[indexPath.row].IsXiodin == true ? "校訂" : "部訂"
-        
-        cell.type.text = "\(type)\(require)"
-        
-        if _displayData[indexPath.row].IsReach{
-            cell.cellView.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
-            //cell.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
+        if _displayData[indexPath.row].IsTitle{
+            
+            if _displayData[indexPath.row].Domain == "column" && _displayData[indexPath.row].Domain == "column"{
+                var cell = tableView.dequeueReusableCellWithIdentifier("columnCell") as UITableViewCell
+                //cell.contentView.layer.masksToBounds = true
+                cell.contentView.layer.cornerRadius = 5
+                return cell
+            }
+            
+            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreTitleCell") as JHSMScoreTitleCell
+            cell.domain.text = _displayData[indexPath.row].Domain
+            cell.credit.text = "\(_displayData[indexPath.row].Credit)"
+            cell.score.text = "\(_displayData[indexPath.row].Score)"
+            
+            cell.score.textColor = UIColor.blackColor()
+            if _displayData[indexPath.row].Score.floatValue < 60{
+                cell.score.textColor = UIColor.redColor()
+            }
+            
+            return cell
+        }
+        else if _displayData[indexPath.row].IsJH{
+            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreCell") as JHSMScoreCell
+            cell.subject.text = _displayData[indexPath.row].Name
+            cell.credit.text = "\(_displayData[indexPath.row].Credit)"
+            cell.score.text = "\(_displayData[indexPath.row].Score)"
+            
+            cell.score.textColor = UIColor.blackColor()
+            if _displayData[indexPath.row].Score.floatValue < 60{
+                cell.score.textColor = UIColor.redColor()
+            }
+            
+            return cell
         }
         else{
-            cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 228.0/255.0, blue: 225.0/255.0, alpha: 0.8)
-            //cell.backgroundColor = UIColor(red: 255.0/255.0, green: 228.0/255.0, blue: 225.0/255.0, alpha: 0.8)
+            var cell = tableView.dequeueReusableCellWithIdentifier("shsmScoreCell") as SHSMScoreCell
+            cell.subject.text = _displayData[indexPath.row].Name
+            cell.credit.text = "學分 \(_displayData[indexPath.row].Credit)"
+            cell.score.text = "成績 \(_displayData[indexPath.row].Score)"
+            
+            var require = _displayData[indexPath.row].IsRequire == true ? "必修" : "選修"
+            var type = _displayData[indexPath.row].IsXiodin == true ? "校訂" : "部訂"
+            
+            cell.type.text = "\(type)\(require)"
+            
+            if _displayData[indexPath.row].IsReach{
+                cell.cellView.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
+                //cell.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
+            }
+            else{
+                cell.cellView.backgroundColor = UIColor(red: 255.0/255.0, green: 228.0/255.0, blue: 225.0/255.0, alpha: 0.8)
+                //cell.backgroundColor = UIColor(red: 255.0/255.0, green: 228.0/255.0, blue: 225.0/255.0, alpha: 0.8)
+            }
+            
+            return cell
         }
         
-        return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
+        if _displayData[indexPath.row].IsTitle{
+            if _displayData[indexPath.row].Domain == "column" && _displayData[indexPath.row].Domain == "column"{
+                return 20
+            }
+            return 20
+        }
+        else if _displayData[indexPath.row].IsJH{
+            return 20
+        }
+        else{
+            return 55
+        }
+        
     }
     
     func GetData(){
@@ -246,4 +402,5 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             Global.Loading.hideActivityIndicator(self.view)
         }
     }
+    
 }

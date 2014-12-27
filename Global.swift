@@ -18,6 +18,7 @@ struct Global{
     static var DSNS:[String]!
     static var GreenColor:UIColor = UIColor(red: 122/255, green: 201/255, blue: 13/255, alpha: 1)
     static var Loading = LoadingIndicator()
+    static var EmbedView:embedView!
     
     static func GetChildList(sender:UIViewController!){
         LVC.GetChildList(sender)
@@ -187,6 +188,9 @@ struct SemsScore{
     var IsRequire:Bool
     var IsReach:Bool
     var IsLearning:Bool
+    var IsJH:Bool
+    var Domain:String!
+    var IsTitle:Bool
 }
 
 struct Msg{
@@ -203,6 +207,13 @@ extension Int {
     }
     var ago:NSDate {
         return NSDate().dateByAddingTimeInterval(-Double(self))
+    }
+}
+
+//if failed will return 0
+extension String {
+    var floatValue: Float {
+        return (self as NSString).floatValue
     }
 }
 

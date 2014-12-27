@@ -112,8 +112,8 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
                 finish.append(child.Con.AccessPoint)
                 
                 child.Con.SendRequest("im.GetMessage", body: "<Request><LastUid>0</LastUid></Request>"){data in
-                    println("==================")
-                    println(NSString(data: data, encoding: NSUTF8StringEncoding))
+//                    println("==================")
+//                    println(NSString(data: data, encoding: NSUTF8StringEncoding))
                     
                     var xml = SWXMLHash.parse(data)
                     for msg in xml["Envelope"]["Body"]["Response"]["Message"]{

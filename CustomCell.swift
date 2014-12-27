@@ -20,11 +20,11 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        
-        subject.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        
-        content.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        
+//        subject.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        
+//        content.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         cellView.layer.borderWidth = 2
         cellView.layer.borderColor = Global.GreenColor.CGColor
@@ -52,8 +52,8 @@ class AbsenceCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        absenceType.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        absenceType.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         absenceType.layer.cornerRadius = 5
         absenceType.layer.masksToBounds = true
@@ -80,9 +80,9 @@ class MeritCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         A.layer.cornerRadius = 10
         A.layer.masksToBounds = true
@@ -112,9 +112,9 @@ class DemeritCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
-        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        date.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+//        reason.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         A.layer.cornerRadius = 10
         A.layer.masksToBounds = true
@@ -132,7 +132,7 @@ class DemeritCell: UITableViewCell {
     }
 }
 
-class SMScoreCell: UITableViewCell {
+class SHSMScoreCell: UITableViewCell {
     
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var subject: UILabel!
@@ -144,12 +144,51 @@ class SMScoreCell: UITableViewCell {
         super.awakeFromNib()
         
         cellView.layer.frame.size.width = self.contentView.layer.frame.size.width
-        cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
+        //cellView.autoresizingMask = UIViewAutoresizing.FlexibleWidth
         
         type.bounds = cellView.bounds
-        type.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin|UIViewAutoresizing.FlexibleWidth
+        //type.autoresizingMask = UIViewAutoresizing.FlexibleRightMargin|UIViewAutoresizing.FlexibleWidth
         
         cellView.layer.cornerRadius = 5
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
+class JHSMScoreTitleCell: UITableViewCell {
+    
+    @IBOutlet weak var domain: UILabel!
+    @IBOutlet weak var credit: UILabel!
+    @IBOutlet weak var score: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
+class JHSMScoreCell: UITableViewCell {
+    
+    @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var credit: UILabel!
+    @IBOutlet weak var score: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         // Initialization code
     }
     

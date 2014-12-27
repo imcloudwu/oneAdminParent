@@ -197,6 +197,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
             
             self.studentBtn.setTitle(Global.CurrentChild.Name, forState: UIControlState.Normal)
             
+            //println(NSString(data: response, encoding: NSUTF8StringEncoding))
             var xml = SWXMLHash.parse(response)
             
             //println(NSString(data: response, encoding: NSUTF8StringEncoding))
