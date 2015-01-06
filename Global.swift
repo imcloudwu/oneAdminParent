@@ -149,7 +149,7 @@ func GetDoorWayURL(dsns:String) -> String{
 }
 
 struct Child{
-    var AccessPoint:String!
+    var DSNS:String!
     var ID:String!
     var Name:String!
     var Con:Connector!
@@ -193,6 +193,19 @@ struct SemsScore{
     var IsTitle:Bool
 }
 
+struct ExamScore{
+    var SchoolYear:String!
+    var Semester:String!
+    var Subject:String!
+    var Exam:String!
+    var Domain:String!
+    var Score:String!
+    var AssignmentScore:String!
+    var Credit:String!
+    var State:String!
+    var Avg:String!
+}
+
 struct Msg{
     var Date:String!
     var SchoolName:String!
@@ -212,8 +225,15 @@ extension Int {
 
 //if failed will return 0
 extension String {
-    var floatValue: Float {
-        return (self as NSString).floatValue
+    var doubleValue: Double {
+        return (self as NSString).doubleValue
+    }
+}
+
+//四捨五入到小數點第二位
+extension Double {
+    func toString() -> String {
+        return String(format: "%.2f", self)
     }
 }
 

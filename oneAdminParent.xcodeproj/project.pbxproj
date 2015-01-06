@@ -9,7 +9,10 @@
 /* Begin PBXBuildFile section */
 		6117F0001A4D1CD2000CC096 /* embedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6117EFFF1A4D1CD2000CC096 /* embedView.swift */; };
 		611E91E31A1F2C3200D93F08 /* AwardViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */; };
+		611EDD8B1A5BE83300780F67 /* scoreicona.png in Resources */ = {isa = PBXBuildFile; fileRef = 611EDD891A5BE83300780F67 /* scoreicona.png */; };
+		611EDD8C1A5BE83300780F67 /* scoreiconb.png in Resources */ = {isa = PBXBuildFile; fileRef = 611EDD8A1A5BE83300780F67 /* scoreiconb.png */; };
 		6121CF4D1A2D8CE7008300C4 /* 1adminicon-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */; };
+		6123F1F31A50F16000F55294 /* SHExamScoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6123F1F21A50F16000F55294 /* SHExamScoreViewCtrl.swift */; };
 		612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */; };
 		613D6AC11A199B8700DD3681 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC01A199B8700DD3681 /* HttpClient.swift */; };
 		613D6AC31A199BD500DD3681 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC21A199BD500DD3681 /* Connector.swift */; };
@@ -41,6 +44,8 @@
 		617B0C2B1A287655005DC9A4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = 617B0C231A287655005DC9A4 /* Icon-Small.png */; };
 		617B0C2C1A287655005DC9A4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 617B0C241A287655005DC9A4 /* Icon-Small@2x.png */; };
 		617B0C2E1A287997005DC9A4 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 617B0C2D1A287997005DC9A4 /* iTunesArtwork.png */; };
+		61A31F581A528CAC008A14A5 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A31F561A528CAC008A14A5 /* arrow_down.png */; };
+		61A31F591A528CAC008A14A5 /* arrow_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 61A31F571A528CAC008A14A5 /* arrow_up.png */; };
 		61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61871A19CE7900488838 /* MessageViewCtrl.swift */; };
 		61BD618A1A19D4E700488838 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD61891A19D4E700488838 /* CustomCell.swift */; };
 		61BD618C1A19FA8300488838 /* MsgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BD618B1A19FA8300488838 /* MsgView.swift */; };
@@ -70,7 +75,10 @@
 /* Begin PBXFileReference section */
 		6117EFFF1A4D1CD2000CC096 /* embedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = embedView.swift; sourceTree = "<group>"; };
 		611E91E21A1F2C3200D93F08 /* AwardViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwardViewCtrl.swift; sourceTree = "<group>"; };
+		611EDD891A5BE83300780F67 /* scoreicona.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreicona.png; sourceTree = "<group>"; };
+		611EDD8A1A5BE83300780F67 /* scoreiconb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreiconb.png; sourceTree = "<group>"; };
 		6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1adminicon-in.png"; sourceTree = "<group>"; };
+		6123F1F21A50F16000F55294 /* SHExamScoreViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHExamScoreViewCtrl.swift; sourceTree = "<group>"; };
 		612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewCtrl.swift; sourceTree = "<group>"; };
 		613D6AC01A199B8700DD3681 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		613D6AC21A199BD500DD3681 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
@@ -102,6 +110,8 @@
 		617B0C231A287655005DC9A4 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		617B0C241A287655005DC9A4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		617B0C2D1A287997005DC9A4 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		61A31F561A528CAC008A14A5 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
+		61A31F571A528CAC008A14A5 /* arrow_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_up.png; sourceTree = "<group>"; };
 		61BD61871A19CE7900488838 /* MessageViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewCtrl.swift; sourceTree = "<group>"; };
 		61BD61891A19D4E700488838 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		61BD618B1A19FA8300488838 /* MsgView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgView.swift; sourceTree = "<group>"; };
@@ -163,6 +173,7 @@
 		61EE730B1A15F83800E949C6 = {
 			isa = PBXGroup;
 			children = (
+				6123F1F21A50F16000F55294 /* SHExamScoreViewCtrl.swift */,
 				6117EFFF1A4D1CD2000CC096 /* embedView.swift */,
 				61D2FA401A4977AE007E9A89 /* SWXMLHash.swift */,
 				613E05371A23348500369344 /* KeyinViewCtrl.swift */,
@@ -240,6 +251,10 @@
 		61EE733E1A15FAB200E949C6 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				611EDD891A5BE83300780F67 /* scoreicona.png */,
+				611EDD8A1A5BE83300780F67 /* scoreiconb.png */,
+				61A31F561A528CAC008A14A5 /* arrow_down.png */,
+				61A31F571A528CAC008A14A5 /* arrow_up.png */,
 				614018CB1A26DDF300620A7F /* add-g.png */,
 				614018CC1A26DDF300620A7F /* add.png */,
 				614018CD1A26DDF300620A7F /* award.png */,
@@ -348,18 +363,22 @@
 				617B0C2E1A287997005DC9A4 /* iTunesArtwork.png in Resources */,
 				614018DC1A26DDF300620A7F /* grade.png in Resources */,
 				614018D81A26DDF300620A7F /* add-g.png in Resources */,
+				61A31F591A528CAC008A14A5 /* arrow_up.png in Resources */,
 				614018E11A26DDF300620A7F /* QRCode.jpg in Resources */,
 				61EE73211A15F83800E949C6 /* Main.storyboard in Resources */,
 				614018DB1A26DDF300620A7F /* file.png in Resources */,
 				61EE73261A15F83800E949C6 /* LaunchScreen.xib in Resources */,
 				614018E01A26DDF300620A7F /* Note.png in Resources */,
+				611EDD8C1A5BE83300780F67 /* scoreiconb.png in Resources */,
 				61EE73231A15F83800E949C6 /* Images.xcassets in Resources */,
 				614018E21A26DDF300620A7F /* school.png in Resources */,
 				61E1F8411A3051F000C564CD /* 1ADMIN.png in Resources */,
+				611EDD8B1A5BE83300780F67 /* scoreicona.png in Resources */,
 				617B0C2A1A287655005DC9A4 /* Icon-76@2x.png in Resources */,
 				617B0C281A287655005DC9A4 /* Icon-60@3x.png in Resources */,
 				617B0C291A287655005DC9A4 /* Icon-76.png in Resources */,
 				614018E31A26DDF300620A7F /* TEACHER.png in Resources */,
+				61A31F581A528CAC008A14A5 /* arrow_down.png in Resources */,
 				617B0C271A287655005DC9A4 /* Icon-60@2x.png in Resources */,
 				617B0C2C1A287655005DC9A4 /* Icon-Small@2x.png in Resources */,
 				614018DE1A26DDF300620A7F /* message.png in Resources */,
@@ -396,6 +415,7 @@
 				61EE731C1A15F83800E949C6 /* FirstViewController.swift in Sources */,
 				61BD61881A19CE7900488838 /* MessageViewCtrl.swift in Sources */,
 				61EE73421A15FB4300E949C6 /* LoginViewCtrl.swift in Sources */,
+				6123F1F31A50F16000F55294 /* SHExamScoreViewCtrl.swift in Sources */,
 				613D6AC51A199C0A00DD3681 /* Global.swift in Sources */,
 				612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */,
 				613E05361A23346000369344 /* ScanViewCtrl.swift in Sources */,

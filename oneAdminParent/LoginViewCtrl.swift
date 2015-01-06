@@ -158,8 +158,8 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
         _con.UserName = self.userName.text
         _con.Password = self.password.text
-                _con.UserName = "imcloudwu@gmail.com"
-                _con.Password = "1234"
+//                _con.UserName = "imcloudwu@gmail.com"
+//                _con.Password = "1234"
         
         if _con.IsValidated("greening"){
             Global.connector = _con
@@ -273,7 +273,9 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                                 for student in xml["Envelope"]["Body"]["Student"]{
                                     if let id = student["StudentId"].element?.text{
                                         if let name = student["StudentName"].element?.text{
-                                            Global.ChildList.append(Child(AccessPoint: con.AccessPoint, ID: id, Name: name, Con: con))
+                                            Global.ChildList.append(Child(DSNS: dsns, ID: id, Name: name, Con: con))
+
+//                                            Global.ChildList.append(Child(AccessPoint: con.AccessPoint, ID: id, Name: name, Con: con))
                                             //println(id)
                                         }
                                     }

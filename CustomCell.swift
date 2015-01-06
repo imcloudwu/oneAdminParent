@@ -198,3 +198,65 @@ class JHSMScoreCell: UITableViewCell {
         // Configure the view for the selected state
     }
 }
+
+class SHExamScoreCell: UITableViewCell {
+    
+    @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var state: UIImageView!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
+class JHExamScoreCell: UITableViewCell {
+    
+    @IBOutlet weak var subject: UILabel!
+    @IBOutlet weak var score: UILabel!
+    @IBOutlet weak var assignmentScore: UILabel!
+    @IBOutlet weak var avg: UILabel!
+    @IBOutlet weak var credit: UILabel!
+    @IBOutlet weak var titleA: UILabel!
+    @IBOutlet weak var titleB: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
+class ExamScoreTitleCell: UITableViewCell {
+    
+    @IBOutlet weak var domain: UILabel!
+    @IBOutlet weak var score: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 5
+        self.backgroundColor = UIColor(red: 217.0/255.0, green: 1, blue: 196.0/255.0, alpha: 0.8)
+        // Initialization code
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        //super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
+    }
+}
+
+

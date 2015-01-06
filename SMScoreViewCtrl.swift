@@ -96,7 +96,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             if buttonIndex > 0{
                 
                 self.sysmBtn.setTitle("\(_data[buttonIndex - 1].SchoolYear)學年度第\(_data[buttonIndex - 1].Semester)學期", forState: UIControlState.Normal)
-                println(_data[buttonIndex - 1].Content)
+                //println(_data[buttonIndex - 1].Content)
                 
                 _displayData.removeAll(keepCapacity: false)
                 var tempDetail = [SemsScore]()
@@ -191,7 +191,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
                     for tt in tempTitle{
                         
                         //累計不合格的領域數目
-                        if tt.Score.floatValue < 60{
+                        if tt.Score.doubleValue < 60{
                             underScoreCount++
                         }
                         
@@ -294,7 +294,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             cell.score.text = "\(_displayData[indexPath.row].Score)"
             
             cell.score.textColor = UIColor.blackColor()
-            if _displayData[indexPath.row].Score.floatValue < 60{
+            if _displayData[indexPath.row].Score.doubleValue < 60{
                 cell.score.textColor = UIColor.redColor()
             }
             
@@ -307,7 +307,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             cell.score.text = "\(_displayData[indexPath.row].Score)"
             
             cell.score.textColor = UIColor.blackColor()
-            if _displayData[indexPath.row].Score.floatValue < 60{
+            if _displayData[indexPath.row].Score.doubleValue < 60{
                 cell.score.textColor = UIColor.redColor()
             }
             
@@ -341,12 +341,12 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat{
         if _displayData[indexPath.row].IsTitle{
             if _displayData[indexPath.row].Domain == "column" && _displayData[indexPath.row].Domain == "column"{
-                return 20
+                return 30
             }
-            return 20
+            return 30
         }
         else if _displayData[indexPath.row].IsJH{
-            return 20
+            return 30
         }
         else{
             return 55
