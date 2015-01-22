@@ -238,6 +238,8 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
         }
         else{
             self.sysmBtn.setTitle("查無學期成績資料", forState: UIControlState.Normal)
+            self.examActionSheet = UIActionSheet(title: "請選擇試別", delegate: self, cancelButtonTitle: "取消", destructiveButtonTitle: nil)
+            self.examBtn.setTitle("查無試別", forState: UIControlState.Normal)
         }
         
         Global.Loading.hideActivityIndicator(self.view)

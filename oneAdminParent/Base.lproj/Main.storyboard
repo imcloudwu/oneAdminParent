@@ -12,7 +12,7 @@
         <scene sceneID="G9D-d3-4gO">
             <objects>
                 <navigationController id="o77-Dx-GiZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="訊息" image="message.png" id="0Aa-aD-yOO"/>
+                    <tabBarItem key="tabBarItem" title="訊息" image="訊息.png" id="0Aa-aD-yOO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mea-jW-ZWY">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -613,7 +613,7 @@
                             <constraint firstItem="Qc7-LH-rKi" firstAttribute="leading" secondItem="FRG-eZ-tcQ" secondAttribute="trailing" id="wlg-6z-r8L"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="獎懲" image="award.png" id="Mhn-kP-zAe"/>
+                    <tabBarItem key="tabBarItem" title="獎懲" image="獎懲紀錄01.png" id="Mhn-kP-zAe"/>
                     <connections>
                         <outlet property="labelAll" destination="ien-wn-1Wc" id="J8x-af-gRd"/>
                         <outlet property="labelDA" destination="m11-du-kU8" id="jOq-5k-FfH"/>
@@ -2103,12 +2103,12 @@
         <image name="QRCode.jpg" width="148" height="148"/>
         <image name="add.png" width="35" height="30"/>
         <image name="arrow_up.png" width="35" height="45"/>
-        <image name="award.png" width="32" height="32"/>
         <image name="grade.png" width="30" height="33"/>
         <image name="keyin.png" width="75" height="40"/>
-        <image name="message.png" width="28" height="29"/>
         <image name="school.png" width="39" height="39"/>
         <image name="scoreiconb.png" width="35" height="30"/>
+        <image name="獎懲紀錄01.png" width="35" height="30"/>
+        <image name="訊息.png" width="35" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

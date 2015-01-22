@@ -86,7 +86,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "auto")
-        cell.textLabel.text = _display[indexPath.row]
+        cell.textLabel?.text = _display[indexPath.row]
         return cell
     }
     

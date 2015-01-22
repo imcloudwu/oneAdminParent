@@ -13,6 +13,8 @@
 		611EDD8C1A5BE83300780F67 /* scoreiconb.png in Resources */ = {isa = PBXBuildFile; fileRef = 611EDD8A1A5BE83300780F67 /* scoreiconb.png */; };
 		6121CF4D1A2D8CE7008300C4 /* 1adminicon-in.png in Resources */ = {isa = PBXBuildFile; fileRef = 6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */; };
 		6123F1F31A50F16000F55294 /* SHExamScoreViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6123F1F21A50F16000F55294 /* SHExamScoreViewCtrl.swift */; };
+		61251CCE1A5CE4BD00E3AEF2 /* 獎懲紀錄01.png in Resources */ = {isa = PBXBuildFile; fileRef = 61251CCC1A5CE4BD00E3AEF2 /* 獎懲紀錄01.png */; };
+		61251CCF1A5CE4BD00E3AEF2 /* 訊息.png in Resources */ = {isa = PBXBuildFile; fileRef = 61251CCD1A5CE4BD00E3AEF2 /* 訊息.png */; };
 		612EB8A71A1C50FA00665FC3 /* AttendanceViewCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */; };
 		613D6AC11A199B8700DD3681 /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC01A199B8700DD3681 /* HttpClient.swift */; };
 		613D6AC31A199BD500DD3681 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613D6AC21A199BD500DD3681 /* Connector.swift */; };
@@ -79,6 +81,8 @@
 		611EDD8A1A5BE83300780F67 /* scoreiconb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scoreiconb.png; sourceTree = "<group>"; };
 		6121CF4C1A2D8CE7008300C4 /* 1adminicon-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1adminicon-in.png"; sourceTree = "<group>"; };
 		6123F1F21A50F16000F55294 /* SHExamScoreViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHExamScoreViewCtrl.swift; sourceTree = "<group>"; };
+		61251CCC1A5CE4BD00E3AEF2 /* 獎懲紀錄01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "獎懲紀錄01.png"; sourceTree = "<group>"; };
+		61251CCD1A5CE4BD00E3AEF2 /* 訊息.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "訊息.png"; sourceTree = "<group>"; };
 		612EB8A61A1C50FA00665FC3 /* AttendanceViewCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttendanceViewCtrl.swift; sourceTree = "<group>"; };
 		613D6AC01A199B8700DD3681 /* HttpClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
 		613D6AC21A199BD500DD3681 /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 		61EE733E1A15FAB200E949C6 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				61251CCC1A5CE4BD00E3AEF2 /* 獎懲紀錄01.png */,
+				61251CCD1A5CE4BD00E3AEF2 /* 訊息.png */,
 				611EDD891A5BE83300780F67 /* scoreicona.png */,
 				611EDD8A1A5BE83300780F67 /* scoreiconb.png */,
 				61A31F561A528CAC008A14A5 /* arrow_down.png */,
@@ -371,6 +377,7 @@
 				614018E01A26DDF300620A7F /* Note.png in Resources */,
 				611EDD8C1A5BE83300780F67 /* scoreiconb.png in Resources */,
 				61EE73231A15F83800E949C6 /* Images.xcassets in Resources */,
+				61251CCF1A5CE4BD00E3AEF2 /* 訊息.png in Resources */,
 				614018E21A26DDF300620A7F /* school.png in Resources */,
 				61E1F8411A3051F000C564CD /* 1ADMIN.png in Resources */,
 				611EDD8B1A5BE83300780F67 /* scoreicona.png in Resources */,
@@ -383,6 +390,7 @@
 				617B0C2C1A287655005DC9A4 /* Icon-Small@2x.png in Resources */,
 				614018DE1A26DDF300620A7F /* message.png in Resources */,
 				617B0C2B1A287655005DC9A4 /* Icon-Small.png in Resources */,
+				61251CCE1A5CE4BD00E3AEF2 /* 獎懲紀錄01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
