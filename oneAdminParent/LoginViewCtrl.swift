@@ -126,8 +126,16 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     //after FB login
     func loginViewFetchedUserInfo(loginView: FBLoginView!, user: FBGraphUser!) {
         
-        fbToken = FBSession.activeSession().accessTokenData.accessToken
-        LoginWithFB()
+        //可能會觸發兩次,所以做判斷確保是必要的執行
+        if let token = FBSession.activeSession().accessTokenData.accessToken{
+            if fbToken != token{
+                fbToken = token
+                LoginWithFB()
+            }
+        }
+        
+        //fbToken = FBSession.activeSession().accessTokenData.accessToken
+        //LoginWithFB()
         
         //            println("user name: \(user.name)")
         //            println("token: \(fbToken)")
@@ -180,6 +188,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     func LoginWithFB(){
         //Global.Loading.showActivityIndicator(self.view)
         //self.status.text = "登入驗證"
+        //println("fb login")
         _con = Connector(authUrl: "https://auth.ischool.com.tw/oauth/token.php", accessPoint: "https://auth.ischool.com.tw:8443/dsa/greening", contract: "user")
         _con.ClientID = "5e89bdfbf971974e3b53312384c0013a"
         _con.ClientSecret = "855b8e05afadc32a7a2ecbf0b09011422e5e84227feb5449b1ad60078771f979"
@@ -202,6 +211,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     
     func GetChildList(sender:UIViewController!){
         
+        //println("get child")
         if sender != nil{
             Global.Loading.showActivityIndicator(sender.view)
         }

@@ -127,6 +127,16 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
                     let credit:String! = course.element?.attributes["Credit"]
                     let percentage:String! = course["FixTime"]["Extension"]["ScorePercentage"].element?.text
                     
+                    //新增平時成績資料
+                    if let ordinarilyScore = course["FixExtension"]["Extension"]["OrdinarilyScore"].element?.text {
+                        self._data.append(ExamScore(SchoolYear: sy, Semester: sm, Subject: subject, Exam: "平時成績", Domain: domain, Score: "0", AssignmentScore: "0", Credit: credit, State: "fair", Avg: ordinarilyScore))
+                        
+                        //平時成績項目
+                        if !self._isHS && !contains(self._examDic["\(sy)#\(sm)"]!, "平時成績"){
+                            self._examDic["\(sy)#\(sm)"]?.append("平時成績")
+                        }
+                    }
+                    
                     for exam in course["Exam"]{
                         
                         let examName:String! = exam.element?.attributes["ExamName"]
