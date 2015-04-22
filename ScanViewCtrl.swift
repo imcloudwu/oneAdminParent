@@ -141,9 +141,10 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIAl
                                     alert.show()
                                 }
                                 else{
+                                    let errorMsg = xml["Envelope"]["Header"]["Status"]["Message"].element?.text
                                     let alert = UIAlertView()
                                     alert.title = "系統提示"
-                                    alert.message = "加入失敗"
+                                    alert.message = "加入失敗:\(errorMsg!)"
                                     alert.addButtonWithTitle("OK")
                                     alert.show()
                                 }

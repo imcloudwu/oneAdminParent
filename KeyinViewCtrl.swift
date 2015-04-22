@@ -51,8 +51,8 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         let mark = self.server.markedTextRange
         if mark == nil && !isBusy{
             isBusy = true
-            let serverName = self.server.text.UrlEncoding
-            newSearch(serverName!)
+            //let serverName = self.server.text.UrlEncoding
+            newSearch(self.server.text)
         }
     }
     
@@ -111,34 +111,37 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     
     func newSearch(matchName:String){
         
-        HttpClient.Get("http://dsns.1campus.net/campusman.ischool.com.tw/config.public/GetSchoolList?content=%3CRequest%3E%3CMatch%3E\(matchName)%3C/Match%3E%3CPagination%3E%3CPageSize%3E10%3C/PageSize%3E%3CStartPage%3E1%3C/StartPage%3E%3C/Pagination%3E%3C/Request%3E", callback: { (data) -> () in
+        if let encodingName = matchName.UrlEncoding{
             
-            self._DSNSDic.removeAll(keepCapacity: false)
-            
-            self._display.removeAll(keepCapacity: false)
-            
-            var xml = SWXMLHash.parse(data)
-            for school in xml["Body"]["Response"]["School"] {
+            HttpClient.Get("http://dsns.1campus.net/campusman.ischool.com.tw/config.public/GetSchoolList?content=%3CRequest%3E%3CMatch%3E\(encodingName)%3C/Match%3E%3CPagination%3E%3CPageSize%3E10%3C/PageSize%3E%3CStartPage%3E1%3C/StartPage%3E%3C/Pagination%3E%3C/Request%3E", callback: { (data) -> () in
                 
-                if let title = school["Title"].element?.text{
-                    if let dsns = school["DSNS"].element?.text{
-                        self._DSNSDic[title] = dsns
+                self._DSNSDic.removeAll(keepCapacity: false)
+                
+                self._display.removeAll(keepCapacity: false)
+                
+                var xml = SWXMLHash.parse(data)
+                for school in xml["Body"]["Response"]["School"] {
+                    
+                    if let title = school["Title"].element?.text{
+                        if let dsns = school["DSNS"].element?.text{
+                            self._DSNSDic[title] = dsns
+                        }
                     }
                 }
-            }
-            
-            self._display = self._DSNSDic.keys.array
-            
-            if self._display.count > 0{
-                self.autoView.reloadData()
-                self.autoView.hidden = false
-            }
-            else{
-                self.autoView.hidden = true
-            }
-            
-            self.isBusy = false
-        })
+                
+                self._display = self._DSNSDic.keys.array
+                
+                if self._display.count > 0{
+                    self.autoView.reloadData()
+                    self.autoView.hidden = false
+                }
+                else{
+                    self.autoView.hidden = true
+                }
+                
+                self.isBusy = false
+            })
+        }
     }
 
     /*
@@ -245,9 +248,10 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                             alert.show()
                         }
                         else{
+                            let errorMsg = xml["Envelope"]["Header"]["Status"]["Message"].element?.text
                             let alert = UIAlertView()
                             alert.title = "系統提示"
-                            alert.message = "加入失敗"
+                            alert.message = "加入失敗:\(errorMsg!)"
                             alert.addButtonWithTitle("OK")
                             alert.show()
                         }

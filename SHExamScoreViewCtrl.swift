@@ -90,6 +90,15 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
         self._data.removeAll(keepCapacity: false)
         self._examDic.removeAll(keepCapacity: false)
         
+//        if _isJH == true{
+//            GetJHData()
+//        }
+//        else{
+//            GetSHData()
+//        }
+    }
+    
+    func GetData(){
         if _isJH == true{
             GetJHData()
         }
@@ -371,8 +380,44 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
         }
     }
     
+    //new solution
+    func CheckDSNS(dsns:String) {
+        
+        self._isJH = false
+        self._isHS = false
+        
+        //encode成功呼叫查詢
+        if let encodingName = dsns.UrlEncoding{
+            
+            HttpClient.Get("http://dsns.1campus.net/campusman.ischool.com.tw/config.public/GetSchoolList?content=%3CRequest%3E%3CMatch%3E\(encodingName)%3C/Match%3E%3CPagination%3E%3CPageSize%3E10%3C/PageSize%3E%3CStartPage%3E1%3C/StartPage%3E%3C/Pagination%3E%3C/Request%3E", callback: { (data) -> () in
+                
+                //println(NSString(data: data, encoding: NSUTF8StringEncoding))
+                
+                var xml = SWXMLHash.parse(data)
+                
+                if let coreSystem = xml["Body"]["Response"]["School"]["CoreSystem"].element?.text{
+                    
+                    if coreSystem == "國中新竹" || coreSystem == "實驗雙語部"{
+                        self._isJH = true
+                        self._isHS = true
+                    }
+                    else if coreSystem == "國中高雄"{
+                        self._isJH = true
+                    }
+                }
+                
+                //等response回來後呼叫取資料
+                self.GetData()
+            })
+        }
+        else{
+            //encode失敗當作高中處理
+            self.GetData()
+        }
+    }
     
-    
+    //old solution
+    /*
     func CheckDSNS(dsns:String) {
         
         self._isJH = false
@@ -422,6 +467,7 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
             }
         }
     }
+*/
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return _displayData.count
