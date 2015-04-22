@@ -71,7 +71,7 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell:MessageCell = tableView.dequeueReusableCellWithIdentifier("msgCell") as MessageCell
+        var cell:MessageCell = tableView.dequeueReusableCellWithIdentifier("msgCell") as! MessageCell
         
 //        cell.cellView.layer.borderWidth = 2
 //        cell.cellView.layer.borderColor = Global.GreenColor.CGColor
@@ -88,8 +88,8 @@ class MessageViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         return cell
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
-        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("msgView") as MsgView
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("msgView") as! MsgView
 //        nextView.subject = "[\(_data[indexPath.row].Unit)] \(_data[indexPath.row].Subject)"
 //        nextView.content = _data[indexPath.row].Content
         nextView.obj = _displayData[indexPath.row]

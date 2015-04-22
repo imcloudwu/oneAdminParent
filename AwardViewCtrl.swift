@@ -170,7 +170,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         
         if _displayData[indexPath.row].isDemerit{
-            var cell = tableView.dequeueReusableCellWithIdentifier("demeritCell") as DemeritCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("demeritCell") as! DemeritCell
             cell.A.text = _displayData[indexPath.row].DemeritA
             cell.B.text = _displayData[indexPath.row].DemeritB
             cell.C.text = _displayData[indexPath.row].DemeritC
@@ -179,7 +179,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
             return cell
         }
         else{
-            var cell = tableView.dequeueReusableCellWithIdentifier("meritCell") as MeritCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("meritCell") as! MeritCell
             cell.A.text = _displayData[indexPath.row].MeritA
             cell.B.text = _displayData[indexPath.row].MeritB
             cell.C.text = _displayData[indexPath.row].MeritC
@@ -208,7 +208,7 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                     
                     if let date = disc.element?.attributes["OccurDate"] {
                         
-                        var record:Record!
+                        //var record:Record!
                         
                         var reason = disc["Reason"].element?.text
                         
@@ -218,7 +218,12 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                             var b = demerit.element?.attributes["B"]
                             var c = demerit.element?.attributes["C"]
                             
-                            record = Record(MeritA: "", MeritB: "", MeritC: "", DemeritA: a, DemeritB: b, DemeritC: c, Date: date, Reason: reason, isDemerit: true)
+                            let clear = demerit.element?.attributes["Cleared"]
+                            
+                            if clear != "是"{
+                                self._data.append(Record(MeritA: "", MeritB: "", MeritC: "", DemeritA: a, DemeritB: b, DemeritC: c, Date: date, Reason: reason, isDemerit: true))
+                                //record = Record(MeritA: "", MeritB: "", MeritC: "", DemeritA: a, DemeritB: b, DemeritC: c, Date: date, Reason: reason, isDemerit: true)
+                            }
                         }
                         else{
                             var merit = disc["Merit"]
@@ -226,11 +231,11 @@ class AwardViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                             var b = merit.element?.attributes["B"]
                             var c = merit.element?.attributes["C"]
                             
-                            record = Record(MeritA: a, MeritB: b, MeritC: c, DemeritA: "", DemeritB: "", DemeritC: "", Date: date, Reason: reason, isDemerit: false)
+                            self._data.append(Record(MeritA: a, MeritB: b, MeritC: c, DemeritA: "", DemeritB: "", DemeritC: "", Date: date, Reason: reason, isDemerit: false))
+                            //record = Record(MeritA: a, MeritB: b, MeritC: c, DemeritA: "", DemeritB: "", DemeritC: "", Date: date, Reason: reason, isDemerit: false)
                         }
                         
-                        self._data.append(record)
-                        
+                        //self._data.append(record)
                     }
                     
                 }

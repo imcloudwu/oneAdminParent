@@ -228,6 +228,10 @@ extension String {
     var doubleValue: Double {
         return (self as NSString).doubleValue
     }
+    
+    public var UrlEncoding: String?{
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+    }
 }
 
 //四捨五入到小數點第二位

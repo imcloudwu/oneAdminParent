@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>F162026F-A441-46E5-80E0-55B75B62AC5C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>oneAdminParent</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>513C8280C7769E6D153F0799FC5974B4A431D546</key>
 		<string>https://github.com/imcloudwu/oneAdminParent.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>oneAdminParent.xcodeproj</string>
+	<string>oneAdminParent.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>513C8280C7769E6D153F0799FC5974B4A431D546</key>

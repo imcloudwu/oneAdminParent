@@ -8,7 +8,7 @@
 
 import UIKit
 
-class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIAlertViewDelegate {
+class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,UIAlertViewDelegate,UITextFieldDelegate {
     
     var _DSNSDic:Dictionary<String,String>!
     var _display:[String]!
@@ -42,7 +42,18 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         code.delegate = self
         relationship.delegate = self
         
+        server.addTarget(self, action: "GetServerName", forControlEvents: UIControlEvents.EditingChanged)
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func GetServerName(){
+        let mark = self.server.markedTextRange
+        if mark == nil && !isBusy{
+            isBusy = true
+            let serverName = self.server.text.UrlEncoding
+            newSearch(serverName!)
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -51,7 +62,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
     }
     
     // called when 'return' key pressed. return NO to ignore.
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         self.view.endEditing(true)
         
@@ -62,23 +73,22 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         return true
     }
     
-    // called when screen touch
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         self.view.endEditing(true)
         if autoView.hidden == false{
             autoView.hidden = true
         }
     }
     
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
-        if textField == server{
-            if string != "" && !isBusy{
-                    isBusy = true
-                    self.search()
-            }
-        }
-        return true
-    }
+//    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+//        if textField == server{
+//            if string != "" && !isBusy{
+//                    isBusy = true
+//                    self.search()
+//            }
+//        }
+//        return true
+//    }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return _display.count
@@ -90,7 +100,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         return cell
     }
     
-    func tableView(tableView: UITableView!, didSelectRowAtIndexPath indexPath: NSIndexPath!) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         autoView.hidden = true
         server.text = _display[indexPath.row]
     }
@@ -99,6 +109,39 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
         Global.GetChildList(self)
     }
     
+    func newSearch(matchName:String){
+        
+        HttpClient.Get("http://dsns.1campus.net/campusman.ischool.com.tw/config.public/GetSchoolList?content=%3CRequest%3E%3CMatch%3E\(matchName)%3C/Match%3E%3CPagination%3E%3CPageSize%3E10%3C/PageSize%3E%3CStartPage%3E1%3C/StartPage%3E%3C/Pagination%3E%3C/Request%3E", callback: { (data) -> () in
+            
+            self._DSNSDic.removeAll(keepCapacity: false)
+            
+            self._display.removeAll(keepCapacity: false)
+            
+            var xml = SWXMLHash.parse(data)
+            for school in xml["Body"]["Response"]["School"] {
+                
+                if let title = school["Title"].element?.text{
+                    if let dsns = school["DSNS"].element?.text{
+                        self._DSNSDic[title] = dsns
+                    }
+                }
+            }
+            
+            self._display = self._DSNSDic.keys.array
+            
+            if self._display.count > 0{
+                self.autoView.reloadData()
+                self.autoView.hidden = false
+            }
+            else{
+                self.autoView.hidden = true
+            }
+            
+            self.isBusy = false
+        })
+    }
+
+    /*
     func search() {
         
         _con.AccessPoint = "http://dsns.ischool.com.tw/dsns/dsns"
@@ -148,6 +191,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
             self.isBusy = false
         }
     }
+*/
     
     @IBAction func submit(sender: AnyObject) {
         
@@ -182,7 +226,7 @@ class KeyinViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSource,
                     con.GetSessionID()
                     
                     con.SendRequest("Join.AsParent", body: "<Request><ParentCode>\(self.code.text)</ParentCode><Relationship>\(self.relationship.text)</Relationship></Request>") { (response) -> () in
-                        var str = NSString(data: response, encoding: NSUTF8StringEncoding)
+                        //var str = NSString(data: response, encoding: NSUTF8StringEncoding)
                         //println(str)
                         
                         var xml = SWXMLHash.parse(response)

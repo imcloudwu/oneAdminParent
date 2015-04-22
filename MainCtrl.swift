@@ -13,6 +13,7 @@ class MainCtrl: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBar.tintColor = Global.GreenColor
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -30,7 +31,7 @@ class MainCtrl: UITabBarController {
         return UIInterfaceOrientationMask.Portrait.rawValue.hashValue | UIInterfaceOrientationMask.PortraitUpsideDown.rawValue.hashValue
     }
     
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+    //override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
         //println("Woops")
-    }
+    //}
 }

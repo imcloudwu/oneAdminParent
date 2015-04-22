@@ -84,7 +84,7 @@ class ScanViewCtrl: UIViewController,AVCaptureMetadataOutputObjectsDelegate,UIAl
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!){
         
         if metadataObjects != nil && metadataObjects.count > 0 {
-            var metadataObj: AVMetadataMachineReadableCodeObject = metadataObjects[0] as AVMetadataMachineReadableCodeObject
+            var metadataObj: AVMetadataMachineReadableCodeObject = metadataObjects[0] as! AVMetadataMachineReadableCodeObject
             
             dispatch_async(dispatch_get_main_queue()) {() -> Void in
                 

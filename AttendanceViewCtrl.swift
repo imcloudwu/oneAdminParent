@@ -117,7 +117,7 @@ class AttendanceViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        var cell:AbsenceCell = tableView.dequeueReusableCellWithIdentifier("absCell") as AbsenceCell
+        var cell:AbsenceCell = tableView.dequeueReusableCellWithIdentifier("absCell") as! AbsenceCell
         cell.absenceType.text = "  假別:\(_displayData[indexPath.row].Type)(\(_displayData[indexPath.row].Count))"
         cell.date.text = "日期:\(_displayData[indexPath.row].Date)"
         cell.period.text = "節次:\(_displayData[indexPath.row].Desc)"

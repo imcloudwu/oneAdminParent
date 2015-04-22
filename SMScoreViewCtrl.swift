@@ -282,13 +282,13 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
         if _displayData[indexPath.row].IsTitle{
             
             if _displayData[indexPath.row].Domain == "column" && _displayData[indexPath.row].Domain == "column"{
-                var cell = tableView.dequeueReusableCellWithIdentifier("columnCell") as UITableViewCell
+                var cell = tableView.dequeueReusableCellWithIdentifier("columnCell") as! UITableViewCell
                 //cell.contentView.layer.masksToBounds = true
                 cell.contentView.layer.cornerRadius = 5
                 return cell
             }
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreTitleCell") as JHSMScoreTitleCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreTitleCell") as! JHSMScoreTitleCell
             cell.domain.text = _displayData[indexPath.row].Domain
             cell.credit.text = "\(_displayData[indexPath.row].Credit)"
             cell.score.text = "\(_displayData[indexPath.row].Score)"
@@ -301,7 +301,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             return cell
         }
         else if _displayData[indexPath.row].IsJH{
-            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreCell") as JHSMScoreCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("jhsmScoreCell") as! JHSMScoreCell
             cell.subject.text = _displayData[indexPath.row].Name
             cell.credit.text = "\(_displayData[indexPath.row].Credit)"
             cell.score.text = "\(_displayData[indexPath.row].Score)"
@@ -314,7 +314,7 @@ class SMScoreViewCtrl: UIViewController,UITableViewDelegate,UITableViewDataSourc
             return cell
         }
         else{
-            var cell = tableView.dequeueReusableCellWithIdentifier("shsmScoreCell") as SHSMScoreCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("shsmScoreCell") as! SHSMScoreCell
             cell.subject.text = _displayData[indexPath.row].Name
             cell.credit.text = "學分 \(_displayData[indexPath.row].Credit)"
             cell.score.text = "成績 \(_displayData[indexPath.row].Score)"

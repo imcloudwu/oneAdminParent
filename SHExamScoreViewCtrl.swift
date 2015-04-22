@@ -432,14 +432,14 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
         if self._isJH == true{
             
             if _displayData[indexPath.row].State == "title"{
-                var cell = tableView.dequeueReusableCellWithIdentifier("examScoreTitleCell") as ExamScoreTitleCell
+                var cell = tableView.dequeueReusableCellWithIdentifier("examScoreTitleCell") as! ExamScoreTitleCell
                 cell.domain.text = _displayData[indexPath.row].Domain
                 cell.score.text = _displayData[indexPath.row].Avg
                 
                 return cell
             }
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("jhExamScoreCell") as JHExamScoreCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("jhExamScoreCell") as! JHExamScoreCell
             
             cell.subject.text = _displayData[indexPath.row].Subject
             cell.credit.text = _displayData[indexPath.row].Credit
@@ -463,7 +463,7 @@ class SHExamScoreViewCtrl: UIViewController,UIActionSheetDelegate,UITableViewDel
         }
         else{
             
-            var cell = tableView.dequeueReusableCellWithIdentifier("shExamScoreCell") as SHExamScoreCell
+            var cell = tableView.dequeueReusableCellWithIdentifier("shExamScoreCell") as! SHExamScoreCell
             
             cell.subject.text = _displayData[indexPath.row].Subject
             cell.score.text = _displayData[indexPath.row].Score

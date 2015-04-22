@@ -70,16 +70,16 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     // called when 'return' key pressed. return NO to ignore.
-    func textFieldShouldReturn(textField: UITextField!) -> Bool
+    func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         self.view.endEditing(true)
         return true
     }
     
     // called when screen touch
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
-        self.view.endEditing(true)
-    }
+    //override func touchesBegan(touches: NSSet, withEvent event: UIEvent){
+        //self.view.endEditing(true)
+    //}
     
 //    func keyboardWillShow(notification: NSNotification) {
 //        
@@ -332,7 +332,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
                 dispatch_once(&Login.token) {
                     //Global.Selector = PrompView.GetInstance()
                     Global.Selector = SelectStudentView.GetInstance()
-                    var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("Main") as UIViewController
+                    var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("Main") as! UIViewController
                     
                     if sender == nil{
                         self.presentViewController(nextView, animated: true, completion: nil)
@@ -358,7 +358,7 @@ class LoginViewCtrl: UIViewController, UITextFieldDelegate,FBLoginViewDelegate {
     }
     
     func MoveToAddChildPage(){
-        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("myChild") as UIViewController
+        var nextView = self.storyboard?.instantiateViewControllerWithIdentifier("myChild") as! UIViewController
         self.presentViewController(nextView, animated: true, completion: nil)
         
         Global.Loading.hideActivityIndicator(self.view)

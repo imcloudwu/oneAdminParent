@@ -120,17 +120,17 @@ public class Connector{
         {
             if let data = tokenData as NSData?{
                 //println(tokenData)
-                var jsonResult = NSJSONSerialization.JSONObjectWithData(tokenData!, options: nil, error: nil) as NSDictionary!
+                var jsonResult = NSJSONSerialization.JSONObjectWithData(tokenData!, options: nil, error: nil) as! NSDictionary!
                 //println(jsonResult)
                 
                 //var wrapping_accessToken = jsonResult["access_token"] as String?
                 //var wrapping_refreashToken = jsonResult["refresh_token"] as String?
                 
-                if let accessToken = jsonResult["access_token"] as String?{
+                if let accessToken = jsonResult["access_token"] as! String?{
                     self.AccessToken = accessToken
                 }
                 
-                if let refreashToken = jsonResult["refresh_token"] as String?{
+                if let refreashToken = jsonResult["refresh_token"] as! String?{
                     self.RefreshToken = refreashToken
                     //println(self.RefreshToken)
                 }
@@ -159,7 +159,7 @@ public class Connector{
         }
         else{
             if let data = sessionData as NSData?{
-                //println(data)
+                //println(NSString(data: data, encoding: NSUTF8StringEncoding))
                 var xml = SWXMLHash.parse(data)
                 //var wrapping_sessionid = xml["Envelope"]["Body"]["SessionID"].element?.text
                 //println(xml)
